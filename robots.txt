@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://measuredinstruments.com/sitemap.xml

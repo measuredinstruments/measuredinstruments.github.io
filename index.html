@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measured Instruments</title>
+<meta name="description" content="Luthiers for agents. Measured Instruments makes instruments and interfaces that your agents build, measure and fit to you.">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #EDEAE3; --ink: #0E0E10; --amber: #F2A33A;
+  --ground: var(--paper); --fg: var(--ink); --rule: #0E0E10; --soft: #3a3833;
+  --hair: color-mix(in srgb, var(--rule) 25%, transparent);
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --measure: 64ch; --gutter: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: var(--ink); --fg: var(--paper); --rule: #EDEAE3; --soft: #c9c5bb; }
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); color: var(--fg); }
+body { margin: 0; font: 400 18px/1.6 var(--serif); }
+main { max-width: calc(var(--measure) + 2 * var(--gutter)); margin: 0 auto; padding: 32px var(--gutter) 64px; }
+a { color: inherit; text-decoration-color: var(--amber); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 4px; }
+.f0 { fill: var(--amber); }
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+.brand { text-decoration: none; display: flex; align-items: center; gap: 10px; font: 500 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.brand .mark { width: 30px; height: 27px; color: var(--fg); flex: none; }
+.rev { font: 400 12px/1.4 var(--mono); color: var(--soft); margin: 0; text-align: right; }
+.rev span { white-space: nowrap; }
+
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding: 48px 0 32px; border-bottom: 1px solid var(--rule); }
+.hero h1 { font: 700 clamp(40px, 10vw, 68px)/0.98 var(--serif); letter-spacing: -0.02em; margin: 0 0 20px; }
+.hero .lede { font: 400 clamp(20px, 3.4vw, 24px)/1.4 var(--serif); margin: 0; max-width: 30ch; }
+.hero .big { width: clamp(110px, 24vw, 190px); height: auto; color: var(--fg); }
+
+.mission { margin: 32px 0; padding: 16px 20px; border: 1px solid var(--rule); }
+.label { font: 500 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; color: var(--soft); }
+.mission p { margin: 0 0 8px; font-size: 19px; line-height: 1.5; }
+.mission p:last-child { margin: 0; }
+
+section { margin: 48px 0; }
+section h2 { font: 600 24px/1.2 var(--serif); margin: 0 0 12px; display: flex; align-items: flex-end; gap: 12px; }
+section p { margin: 0 0 14px; }
+.scale { display: inline-flex; align-items: flex-end; gap: 5px; height: 26px; border-bottom: 2px solid var(--rule); padding: 0 2px; flex: none; }
+.scale i { display: block; width: 2px; height: 8px; background: var(--fg); }
+.scale b { display: block; font: 500 12px/1 var(--mono); border-left: 2px solid var(--amber); padding: 0 0 4px 4px; height: 24px; }
+blockquote { margin: 18px 0; padding: 2px 0 2px 16px; border-left: 2px solid var(--amber); font-style: italic; }
+blockquote cite { display: block; font: 400 12px/1.5 var(--mono); font-style: normal; color: var(--soft); margin-top: 6px; }
+
+ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+ol.steps li { counter-increment: s; padding: 12px 0 12px 44px; border-top: 1px solid var(--hair); position: relative; }
+ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 15px; font: 500 13px/1 var(--mono); color: var(--soft); }
+ol.steps strong { font-weight: 700; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font: 400 15px/1.45 var(--sans); }
+td { padding: 10px 0; border-top: 1px solid var(--hair); vertical-align: top; }
+td:first-child { font: 500 15px/1.45 var(--mono); padding-right: 16px; white-space: nowrap; }
+.links { font: 500 15px/1.6 var(--sans); display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; }
+.links a { display: inline-block; min-height: 40px; padding-top: 8px; }
+.hero.solo { grid-template-columns: 1fr; }
+code { font: 400 14px/1.5 var(--mono); overflow-wrap: anywhere; }
+pre.read { font: 400 12px/1.45 var(--mono); white-space: pre; overflow-x: auto; margin: 16px 0; padding: 12px; border: 1px solid var(--hair); }
+.scroll { overflow-x: auto; }
+table.cmp { min-width: 560px; font-size: 14px; }
+table.cmp th { text-align: left; font: 500 13px/1.4 var(--mono); padding: 8px 12px 8px 0; color: var(--soft); }
+table.cmp td { padding-right: 12px; }
+table.cmp td:first-child { white-space: normal; width: 22%; font-size: 13px; }
+h3 { font: 600 19px/1.3 var(--serif); margin: 28px 0 8px; }
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { padding: 10px 0; border-top: 1px solid var(--hair); }
+.num { font: 400 12px/1.5 var(--mono); color: var(--soft); margin-left: 8px; }
+audio { width: 100%; margin: 4px 0 8px; }
+.mission p.caption, .caption { font: 400 13px/1.5 var(--sans); color: var(--soft); }
+.held { background: var(--amber); color: var(--ink); font: 500 13px/1.4 var(--mono); padding: 1px 4px; }
+footer p { margin: 0 0 4px; }
+table.vocab td:first-child { white-space: normal; width: 34%; }
+.builders { border-top: 1px solid var(--rule); padding-top: 16px; font: 400 16px/1.6 var(--sans); }
+.builders .label { margin-bottom: 12px; }
+footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px; font: 400 12px/1.6 var(--mono); color: var(--soft); }
+@media (max-width: 520px) {
+  .hero { grid-template-columns: 1fr; padding-top: 32px; }
+  .hero .big { order: -1; width: 96px; }
+  td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <a class="brand" href="./"><svg class="mark" viewBox="60 80 400 360" role="img" aria-label="Measured Instruments mark"><title>Measured Instruments mark</title><rect x="103.0" y="122.0" width="14" height="258.0" class="f0"/>
+<ellipse cx="110.0" cy="122.0" rx="25" ry="20" transform="rotate(-20 110.0 122.0)" class="f0"/>
+<rect x="155.0" y="226.6" width="14" height="153.4" fill="currentColor"/>
+<ellipse cx="162.0" cy="226.6" rx="25" ry="20" transform="rotate(-20 162.0 226.6)" fill="currentColor"/>
+<rect x="207.0" y="266.8" width="14" height="113.2" fill="currentColor"/>
+<ellipse cx="214.0" cy="266.8" rx="25" ry="20" transform="rotate(-20 214.0 266.8)" fill="currentColor"/>
+<rect x="259.0" y="272.4" width="14" height="107.6" fill="currentColor"/>
+<ellipse cx="266.0" cy="272.4" rx="25" ry="20" transform="rotate(-20 266.0 272.4)" fill="currentColor"/>
+<rect x="311.0" y="295.1" width="14" height="84.9" fill="currentColor"/>
+<ellipse cx="318.0" cy="295.1" rx="25" ry="20" transform="rotate(-20 318.0 295.1)" fill="currentColor"/>
+<rect x="363.0" y="312.7" width="14" height="67.3" fill="currentColor"/>
+<ellipse cx="370.0" cy="312.7" rx="25" ry="20" transform="rotate(-20 370.0 312.7)" fill="currentColor"/>
+<rect x="415.0" y="320.0" width="14" height="60.0" fill="currentColor"/>
+<ellipse cx="422.0" cy="320.0" rx="25" ry="20" transform="rotate(-20 422.0 320.0)" fill="currentColor"/>
+<rect x="90.0" y="394" width="352.0" height="5" fill="currentColor"/>
+<rect x="108.0" y="399" width="4" height="22" fill="currentColor"/>
+<rect x="160.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="212.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="264.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
+  <p class="rev"><span>draft 2026-10-17</span><br><span>last checked 2026-10-17</span></p>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Luthiers for agents.</h1>
+    <p class="lede">We make the parts, your agents make the instrument, and you say when it fits.</p>
+  </div>
+  <svg class="big" viewBox="60 80 400 360" role="img" aria-label="A note's partials drawn as stems with note heads on a ruler; the amber stem is the fundamental"><title>A note's partials drawn as stems with note heads on a ruler; the amber stem is the fundamental</title><rect x="103.0" y="122.0" width="14" height="258.0" class="f0"/>
+<ellipse cx="110.0" cy="122.0" rx="25" ry="20" transform="rotate(-20 110.0 122.0)" class="f0"/>
+<rect x="155.0" y="226.6" width="14" height="153.4" fill="currentColor"/>
+<ellipse cx="162.0" cy="226.6" rx="25" ry="20" transform="rotate(-20 162.0 226.6)" fill="currentColor"/>
+<rect x="207.0" y="266.8" width="14" height="113.2" fill="currentColor"/>
+<ellipse cx="214.0" cy="266.8" rx="25" ry="20" transform="rotate(-20 214.0 266.8)" fill="currentColor"/>
+<rect x="259.0" y="272.4" width="14" height="107.6" fill="currentColor"/>
+<ellipse cx="266.0" cy="272.4" rx="25" ry="20" transform="rotate(-20 266.0 272.4)" fill="currentColor"/>
+<rect x="311.0" y="295.1" width="14" height="84.9" fill="currentColor"/>
+<ellipse cx="318.0" cy="295.1" rx="25" ry="20" transform="rotate(-20 318.0 295.1)" fill="currentColor"/>
+<rect x="363.0" y="312.7" width="14" height="67.3" fill="currentColor"/>
+<ellipse cx="370.0" cy="312.7" rx="25" ry="20" transform="rotate(-20 370.0 312.7)" fill="currentColor"/>
+<rect x="415.0" y="320.0" width="14" height="60.0" fill="currentColor"/>
+<ellipse cx="422.0" cy="320.0" rx="25" ry="20" transform="rotate(-20 422.0 320.0)" fill="currentColor"/>
+<rect x="90.0" y="394" width="352.0" height="5" fill="currentColor"/>
+<rect x="108.0" y="399" width="4" height="22" fill="currentColor"/>
+<rect x="160.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="212.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="264.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg>
+</div>
+
+<div class="mission">
+  <p class="label">Listen</p>
+  <audio controls preload="none" src="audio/crossroads_listen_26s.mp3"></audio>
+  <p class="caption">Crossroads Rewired, made with ismail. Every sound is synthesized: no samples, no recorded audio. Guitar, bass and drum voices and the band's timing feel were fitted to a 1970 Jimi Hendrix recording, measurements only. Strings modeled on VSCO 2 Community Edition (Versilian Studios, CC0) and cello notes by flcellogrl (CC BY 4.0, freesound.org).</p>
+  <p><a href="ismail/">ismail</a> is our first instrument. Open source, on <a href="https://github.com/newsbubbles/ismail">GitHub</a>.</p>
+</div>
+
+<div class="mission">
+  <p class="label">Mission</p>
+  <p>Measured Instruments makes instruments and interfaces that your agents build, measure and fit to you.</p>
+  <p>No matter what creative field you are in, your agency matters. Agents should not replace your work, but enhance it, and bring your value to the forefront.</p>
+</div>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>1</b></span> Fitted to you</h2>
+  <p>A good personal interface should bend to you, not the other way around, just like a fitted suit should be tailored just for you. The tailor takes measurements, goes away and does the work quickly, comes back and has you try it on again. The fit is set by what you can tell apart and what works, not by what flatters.</p>
+  <blockquote>I feel the act of play, not just prompting, looking at results and telling the agent what's wrong.<cite>Nate, who started Measured Instruments</cite></blockquote>
+  <p>Play is where creativity happens. Chat is one part of that, and it iterates at a lower bandwidth than live music, interactive VR or a phone in your hand can give you.</p>
+  <p>We make instruments that get better over time, using the agents you already have, on your own machine.</p>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>2</b></span> What we make</h2>
+  <table>
+    <tr><td><a href="ismail/">ismail</a></td><td>Interfaces your agent runs and rebuilds for you: a DAW, a VR stage and a phone page. Open source, on your own machine.</td></tr>
+  </table>
+  <p>Each project has a page for people and a plain page <a href="agents/">for agents</a>.</p>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>3</b></span> How we work</h2>
+  <p>Open source, and on your own machine. We credit every recording an instrument was measured from. A number steers only after it agrees with your ear, in a blind test. We hold ourselves to a small vocabulary, and we name the papers and people we learned from.</p>
+  <p>The team is one person deciding and AI agents doing the work, each in one role. Contributors are welcome.</p>
+  <div class="links">
+    <a href="how/">How we work</a>
+    <a href="team/">The team, and contributing</a>
+  </div>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>4</b></span> Work with me</h2>
+  <p>I take on a few projects at a time, and I'm open to the right full-time role.</p>
+  <table>
+    <tr><td>Agent tooling</td><td>MCP servers and tool surfaces that agents use reliably, for domains that are hard to put into words: sound, 3D, media.</td></tr>
+    <tr><td>Sound for AI video</td><td>Scores and sound design written to your cut, editable after the fact, checked by measurement and by ear.</td></tr>
+    <tr><td>Graded environments</td><td>Tasks where an agent's output is scored against a reference's own variation, for evaluation and training.</td></tr>
+  </table>
+  <div class="links">
+    <a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a>
+    <a href="https://github.com/newsbubbles">github.com/newsbubbles</a>
+    <a href="https://github.com/measuredinstruments">github.com/measuredinstruments</a>
+  </div>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>5</b></span> For builders</h2>
+  <p>If you build agents, tools or harnesses, this part is for you.</p>
+  <p>We see code as art, but we also see it as artisanal. As agents get faster at writing it, software has become everywhere at once, and the whole industry has been pushed into a chaotic moment. The game is no longer how fast you can code. It is how fast we can all get past the limits we once thought held back what our creative minds can imagine.</p>
+  <p>So we stopped racing to build harnesses, and asked what we could give harnesses power over. Our instruments and interfaces are harness agnostic: your harness, your machine.</p>
+</section>
+
+<footer>
+  <p>Measured Instruments LLC, a Wyoming limited liability company</p>
+  <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
+  <p>draft 2026-10-17 &middot; last checked 2026-10-17 &middot; <a href="./">home</a> &middot; <a href="./ismail/">ismail</a> &middot; <a href="./how/">how we work</a> &middot; <a href="./team/">team</a> &middot; <a href="./agents/">for agents</a></p>
+</footer>
+</main>
+</body>
+</html>

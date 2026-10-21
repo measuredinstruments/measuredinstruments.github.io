@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The soundtrack for your Claude music video: Measured Instruments</title>
+<meta name="description" content="The soundtrack for your Claude music video: Suno or ismail? A short answer, a side-by-side table and the timing file that lets video code cut on the beat.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #EDEAE3; --ink: #0E0E10; --amber: #F2A33A;
+  --ground: var(--paper); --fg: var(--ink); --rule: #0E0E10; --soft: #3a3833;
+  --hair: color-mix(in srgb, var(--rule) 25%, transparent);
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --measure: 64ch; --gutter: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: var(--ink); --fg: var(--paper); --rule: #EDEAE3; --soft: #c9c5bb; }
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); color: var(--fg); }
+body { margin: 0; font: 400 18px/1.6 var(--serif); }
+main { max-width: calc(var(--measure) + 2 * var(--gutter)); margin: 0 auto; padding: 32px var(--gutter) 64px; }
+a { color: inherit; text-decoration-color: var(--amber); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 4px; }
+.f0 { fill: var(--amber); }
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+.brand { text-decoration: none; display: flex; align-items: center; gap: 10px; font: 500 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.brand .mark { width: 30px; height: 27px; color: var(--fg); flex: none; }
+.rev { font: 400 12px/1.4 var(--mono); color: var(--soft); margin: 0; text-align: right; }
+.rev span { white-space: nowrap; }
+
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding: 48px 0 32px; border-bottom: 1px solid var(--rule); }
+.hero h1 { font: 700 clamp(40px, 10vw, 68px)/0.98 var(--serif); letter-spacing: -0.02em; margin: 0 0 20px; }
+.hero .lede { font: 400 clamp(20px, 3.4vw, 24px)/1.4 var(--serif); margin: 0; max-width: 30ch; }
+.hero .big { width: clamp(110px, 24vw, 190px); height: auto; color: var(--fg); }
+
+.mission { margin: 32px 0; padding: 16px 20px; border: 1px solid var(--rule); }
+.label { font: 500 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; color: var(--soft); }
+.mission p { margin: 0 0 8px; font-size: 19px; line-height: 1.5; }
+.mission p:last-child { margin: 0; }
+
+section { margin: 48px 0; }
+section h2 { font: 600 24px/1.2 var(--serif); margin: 0 0 12px; display: flex; align-items: flex-end; gap: 12px; }
+section p { margin: 0 0 14px; }
+.scale { display: inline-flex; align-items: flex-end; gap: 5px; height: 26px; border-bottom: 2px solid var(--rule); padding: 0 2px; flex: none; }
+.scale i { display: block; width: 2px; height: 8px; background: var(--fg); }
+.scale b { display: block; font: 500 12px/1 var(--mono); border-left: 2px solid var(--amber); padding: 0 0 4px 4px; height: 24px; }
+blockquote { margin: 18px 0; padding: 2px 0 2px 16px; border-left: 2px solid var(--amber); font-style: italic; }
+blockquote cite { display: block; font: 400 12px/1.5 var(--mono); font-style: normal; color: var(--soft); margin-top: 6px; }
+
+ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+ol.steps li { counter-increment: s; padding: 12px 0 12px 44px; border-top: 1px solid var(--hair); position: relative; }
+ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 15px; font: 500 13px/1 var(--mono); color: var(--soft); }
+ol.steps strong { font-weight: 700; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font: 400 15px/1.45 var(--sans); }
+td { padding: 10px 0; border-top: 1px solid var(--hair); vertical-align: top; }
+td:first-child { font: 500 15px/1.45 var(--mono); padding-right: 16px; white-space: nowrap; }
+.links { font: 500 15px/1.6 var(--sans); display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; }
+.links a { display: inline-block; min-height: 40px; padding-top: 8px; }
+.hero.solo { grid-template-columns: 1fr; }
+code { font: 400 14px/1.5 var(--mono); overflow-wrap: anywhere; }
+pre.read { font: 400 12px/1.45 var(--mono); white-space: pre; overflow-x: auto; margin: 16px 0; padding: 12px; border: 1px solid var(--hair); }
+.scroll { overflow-x: auto; }
+table.cmp { min-width: 560px; font-size: 14px; }
+table.cmp th { text-align: left; font: 500 13px/1.4 var(--mono); padding: 8px 12px 8px 0; color: var(--soft); }
+table.cmp td { padding-right: 12px; }
+table.cmp td:first-child { white-space: normal; width: 22%; font-size: 13px; }
+h3 { font: 600 19px/1.3 var(--serif); margin: 28px 0 8px; }
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { padding: 10px 0; border-top: 1px solid var(--hair); }
+.num { font: 400 12px/1.5 var(--mono); color: var(--soft); margin-left: 8px; }
+audio { width: 100%; margin: 4px 0 8px; }
+.mission p.caption, .caption { font: 400 13px/1.5 var(--sans); color: var(--soft); }
+.held { background: var(--amber); color: var(--ink); font: 500 13px/1.4 var(--mono); padding: 1px 4px; }
+footer p { margin: 0 0 4px; }
+table.vocab td:first-child { white-space: normal; width: 34%; }
+.builders { border-top: 1px solid var(--rule); padding-top: 16px; font: 400 16px/1.6 var(--sans); }
+.builders .label { margin-bottom: 12px; }
+footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px; font: 400 12px/1.6 var(--mono); color: var(--soft); }
+@media (max-width: 520px) {
+  .hero { grid-template-columns: 1fr; padding-top: 32px; }
+  .hero .big { order: -1; width: 96px; }
+  td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <a class="brand" href="../../"><svg class="mark" viewBox="60 80 400 360" role="img" aria-label="Measured Instruments mark"><title>Measured Instruments mark</title><rect x="103.0" y="122.0" width="14" height="258.0" class="f0"/>
+<ellipse cx="110.0" cy="122.0" rx="25" ry="20" transform="rotate(-20 110.0 122.0)" class="f0"/>
+<rect x="155.0" y="226.6" width="14" height="153.4" fill="currentColor"/>
+<ellipse cx="162.0" cy="226.6" rx="25" ry="20" transform="rotate(-20 162.0 226.6)" fill="currentColor"/>
+<rect x="207.0" y="266.8" width="14" height="113.2" fill="currentColor"/>
+<ellipse cx="214.0" cy="266.8" rx="25" ry="20" transform="rotate(-20 214.0 266.8)" fill="currentColor"/>
+<rect x="259.0" y="272.4" width="14" height="107.6" fill="currentColor"/>
+<ellipse cx="266.0" cy="272.4" rx="25" ry="20" transform="rotate(-20 266.0 272.4)" fill="currentColor"/>
+<rect x="311.0" y="295.1" width="14" height="84.9" fill="currentColor"/>
+<ellipse cx="318.0" cy="295.1" rx="25" ry="20" transform="rotate(-20 318.0 295.1)" fill="currentColor"/>
+<rect x="363.0" y="312.7" width="14" height="67.3" fill="currentColor"/>
+<ellipse cx="370.0" cy="312.7" rx="25" ry="20" transform="rotate(-20 370.0 312.7)" fill="currentColor"/>
+<rect x="415.0" y="320.0" width="14" height="60.0" fill="currentColor"/>
+<ellipse cx="422.0" cy="320.0" rx="25" ry="20" transform="rotate(-20 422.0 320.0)" fill="currentColor"/>
+<rect x="90.0" y="394" width="352.0" height="5" fill="currentColor"/>
+<rect x="108.0" y="399" width="4" height="22" fill="currentColor"/>
+<rect x="160.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="212.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="264.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
+  <p class="rev"><span>draft 2026-10-19</span><br><span>last checked 2026-10-19</span></p>
+</header>
+
+<div class="hero solo">
+  <div>
+    <h1>The soundtrack for your Claude music video: Suno or ismail?</h1>
+    <p class="lede">Last checked: 19 October 2026. Plans and terms change; each line about Suno links to Suno's own page.</p>
+  </div>
+</div>
+
+<div class="mission">
+  <p class="label">Short answer</p>
+  <p>If your video needs a sung song with lyrics, use Suno: ismail has no singing voice. If it needs an instrumental, a score or a beat you can edit bar by bar, made by the same agent that writes your visuals and timed to them exactly, use <a href="https://github.com/newsbubbles/ismail">ismail</a>: a free, open-source DAW your agent drives, running on your own computer.</p>
+</div>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>1</b></span> The problem this solves</h2>
+
+  <p>You asked Claude to build a music video in code. The visuals are code, so you can change any frame. The track came from somewhere else as one finished audio file: to change the drop, you generate again and hope; to sync a scene to a snare, you hunt for it by ear.</p>
+
+  <p>With ismail the music is code too. The agent writes the notes, so it knows when every kick, snare and chord change lands.</p>
+
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>2</b></span> Side by side</h2>
+
+  <div class="scroll"><table class="cmp">
+    <tr><th></th><th>ismail</th><th>Suno</th></tr>
+    <tr><td>What you get</td><td>A project your agent wrote: notes, instruments, effects, mix. Rendered to WAV, one stem per track</td><td>A finished, mixed song from a prompt, vocals included</td></tr>
+    <tr><td>Vocals</td><td>No singing voice. Speech and vocoder-style voices only</td><td>Yes, sung lyrics</td></tr>
+    <tr><td>Changing one part</td><td>Edit one note, bar, sound or fader, render again; everything else stays as it was</td><td>Regenerate or replace a section. Suno Studio (Premier plan) edits MIDI on a timeline (<a href="https://suno.com/release-notes">release notes</a>)</td></tr>
+    <tr><td>Timing for your visuals</td><td>The notes are the source, so the agent knows when every note lands. <code>python -m ismail.video sync</code> writes every note with its video frame (to the nearest frame), plus loudness per frame, to a JSON file your video code can read</td><td>You get audio. Timing comes from listening, or from analysing the file</td></tr>
+    <tr><td>Files on your disk</td><td>Every render, as many as you like</td><td>Free: up to 7 downloads for the life of the account. Pro (8 USD a month): 20 a month. Premier (24 USD a month): 60 a month (<a href="https://suno.com/pricing">pricing</a>, <a href="https://help.suno.com/en/articles/13926209">downloads</a>)</td></tr>
+    <tr><td>Using it in a published video</td><td>MIT licence, commercial use included. Some sampled or measured instruments ask for a credit, and the <code>credits</code> op lists them</td><td>Free plan: "No commercial rights" (<a href="https://suno.com/pricing">pricing</a>). Paid plans: commercial use of downloaded songs (<a href="https://suno.com/terms">terms</a>)</td></tr>
+    <tr><td>Agent access</td><td>Built for agents: MCP tools, a command line and a Python API</td><td>No public API; the terms forbid "robots, scraping" (<a href="https://suno.com/terms">terms</a>)</td></tr>
+    <tr><td>Runs</td><td>On your machine</td><td>In Suno's cloud</td></tr>
+    <tr><td>Setup</td><td>Your agent installs it</td><td>Nothing to install</td></tr>
+    <tr><td>Speed to a first full song</td><td>Minutes to hours, and it needs your direction</td><td>Under a minute</td></tr>
+  </table></div>
+
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>3</b></span> What the timing file looks like</h2>
+
+  <p>This is the start of the file ismail wrote for the music video of Crossroads Rewired (144 BPM, 30 frames a second). Each note carries its frame <code>f</code>, so the video code cuts on the kick and flashes on the snare without anyone listening for them:</p>
+
+  <pre class="read">{
+ "fps": 30,
+ "bpm": 144.0,
+ "frames_per_beat": 12.5,
+ "beats_per_bar": 4,
+ "length_bars": 162,
+ "total_frames": 8220,
+ "tracks": {
+  "kick": [
+   {"f": 1600, "beat": 128.0, "pitch": 36, "len": 3, "vel": 127},
+   {"f": 1631, "beat": 130.5, "pitch": 36, "len": 3, "vel": 100},
+   {"f": 1650, "beat": 132.0, "pitch": 36, "len": 3, "vel": 127}
+  ],
+  "snare": [
+   {"f": 1625, "beat": 130.0, "pitch": 36, "len": 3, "vel": 127},
+   {"f": 1675, "beat": 134.0, "pitch": 36, "len": 3, "vel": 127},
+   {"f": 1725, "beat": 138.0, "pitch": 36, "len": 3, "vel": 127}
+  ]
+ }
+}</pre>
+
+  <p>At 144 BPM a beat is 12.5 frames, so a note between frames goes to the nearest one: beat 130.5 lands on frame 1631. At tempos where a beat is a whole number of frames (150 BPM at 30 fps is 12) every note lands exactly.</p>
+
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>4</b></span> Choose Suno if</h2>
+
+  <ul class="plain">
+    <li>The song needs to be sung.</li>
+    <li>You want a polished, genre-typical song from one sentence and won't change it much.</li>
+    <li>You don't want to install anything.</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>5</b></span> Choose ismail if</h2>
+
+  <ul class="plain">
+    <li>The music is instrumental: a score, a bed under narration, a loop, a beat, sound design.</li>
+    <li>You want to change the music the way you change the visuals: one bar at a time.</li>
+    <li>You want the visuals to land on the music exactly, from the notes and not from guessing.</li>
+    <li>You want the files on your disk with no download limit, and the right to use them commercially.</li>
+    <li>You want one agent session to make both the picture and the sound.</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>6</b></span> How it goes in practice</h2>
+
+  <ol class="steps">
+    <li>Paste this to the agent you already use for the video:<pre class="read">Set me up with ismail: https://github.com/newsbubbles/ismail</pre></li>
+    <li>Tell it the length, tempo and feel, and where the big moments are ("drop at 0:42, quiet under the voice-over from 1:10").</li>
+    <li>It writes the parts, renders, and reads the render back as text (levels per bar, drum lanes, structure) to catch problems before you listen.</li>
+    <li>You listen and say what to change. It changes that part, not the whole track.</li>
+    <li>Your video code reads the event file and cuts on the beat.</li>
+  </ol>
+
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>7</b></span> Where ismail falls short</h2>
+
+  <p>From ismail's own README: a first sketch from a blank page can sound generic; it is strongest when there is something to measure. No singing voice, one tempo per project, no MIDI import or export, no plugin hosting. It needs a capable agent, and your ear is the final judge.</p>
+
+  <p><em>Sources, read 19 October 2026: <a href="https://suno.com/pricing">suno.com/pricing</a>, <a href="https://suno.com/terms">suno.com/terms</a> (effective 3 September 2026), <a href="https://help.suno.com/en/articles/13926209">help.suno.com article 13926209</a> (download limits), <a href="https://suno.com/release-notes">suno.com/release-notes</a>. ismail facts from its README, docs/reference.md and the ismail.video source.</em></p>
+
+</section>
+<footer>
+  <p>Measured Instruments LLC, a Wyoming limited liability company</p>
+  <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
+  <p>draft 2026-10-19 &middot; last checked 2026-10-19 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a></p>
+</footer>
+</main>
+</body>
+</html>

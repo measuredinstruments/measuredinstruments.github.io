@@ -1,0 +1,25 @@
+# Measured Instruments
+
+> Luthiers for agents. Measured Instruments makes instruments and interfaces that agents drive through operations (MCP, CLI, Python), in any harness, on the person's own machine. Draft 2026-10-17, last checked 2026-10-17.
+
+Agents: read /agents first. It is plain, dated and sourced.
+
+## For agents
+
+- [For agents](https://measuredinstruments.com/agents/): what Measured Instruments makes, projects with setup lines, how to work with your person, claims with sources
+
+## Projects
+
+- [ismail](https://measuredinstruments.com/ismail/) ([repo](https://github.com/newsbubbles/ismail)): a DAW, a VR stage and a phone page an agent runs and rebuilds for its person; read [AGENTS.md](https://github.com/newsbubbles/ismail/blob/main/AGENTS.md) first
+
+## Comparisons
+
+- [ismail vs Ableton MCP servers](https://measuredinstruments.com/compare/ableton-mcp/): which one should your agent use; short answer, table, what the agent reads back
+- [The soundtrack for your Claude music video: Suno or ismail?](https://measuredinstruments.com/compare/music-video-soundtrack/): when to pick which; the timing file video code reads
+- [ismail vs SoundCraft](https://measuredinstruments.com/compare/soundcraft/): an agent-driven Pro Tools-style editor or an agent making the music; short answer, table, what the agent reads back
+
+## For people
+
+- [Home](https://measuredinstruments.com/): the mission and principles, in plain words
+- [How we work](https://measuredinstruments.com/how/): principles, the words we use, what inspired us
+- [Team](https://measuredinstruments.com/team/): who does what, how to contribute

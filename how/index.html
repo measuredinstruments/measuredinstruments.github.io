@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How we work: Measured Instruments</title>
+<meta name="description" content="How Measured Instruments works: our principles, the words we use, and the papers and people that inspired us.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #EDEAE3; --ink: #0E0E10; --amber: #F2A33A;
+  --ground: var(--paper); --fg: var(--ink); --rule: #0E0E10; --soft: #3a3833;
+  --hair: color-mix(in srgb, var(--rule) 25%, transparent);
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --measure: 64ch; --gutter: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: var(--ink); --fg: var(--paper); --rule: #EDEAE3; --soft: #c9c5bb; }
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); color: var(--fg); }
+body { margin: 0; font: 400 18px/1.6 var(--serif); }
+main { max-width: calc(var(--measure) + 2 * var(--gutter)); margin: 0 auto; padding: 32px var(--gutter) 64px; }
+a { color: inherit; text-decoration-color: var(--amber); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 4px; }
+.f0 { fill: var(--amber); }
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+.brand { text-decoration: none; display: flex; align-items: center; gap: 10px; font: 500 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.brand .mark { width: 30px; height: 27px; color: var(--fg); flex: none; }
+.rev { font: 400 12px/1.4 var(--mono); color: var(--soft); margin: 0; text-align: right; }
+.rev span { white-space: nowrap; }
+
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding: 48px 0 32px; border-bottom: 1px solid var(--rule); }
+.hero h1 { font: 700 clamp(40px, 10vw, 68px)/0.98 var(--serif); letter-spacing: -0.02em; margin: 0 0 20px; }
+.hero .lede { font: 400 clamp(20px, 3.4vw, 24px)/1.4 var(--serif); margin: 0; max-width: 30ch; }
+.hero .big { width: clamp(110px, 24vw, 190px); height: auto; color: var(--fg); }
+
+.mission { margin: 32px 0; padding: 16px 20px; border: 1px solid var(--rule); }
+.label { font: 500 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; color: var(--soft); }
+.mission p { margin: 0 0 8px; font-size: 19px; line-height: 1.5; }
+.mission p:last-child { margin: 0; }
+
+section { margin: 48px 0; }
+section h2 { font: 600 24px/1.2 var(--serif); margin: 0 0 12px; display: flex; align-items: flex-end; gap: 12px; }
+section p { margin: 0 0 14px; }
+.scale { display: inline-flex; align-items: flex-end; gap: 5px; height: 26px; border-bottom: 2px solid var(--rule); padding: 0 2px; flex: none; }
+.scale i { display: block; width: 2px; height: 8px; background: var(--fg); }
+.scale b { display: block; font: 500 12px/1 var(--mono); border-left: 2px solid var(--amber); padding: 0 0 4px 4px; height: 24px; }
+blockquote { margin: 18px 0; padding: 2px 0 2px 16px; border-left: 2px solid var(--amber); font-style: italic; }
+blockquote cite { display: block; font: 400 12px/1.5 var(--mono); font-style: normal; color: var(--soft); margin-top: 6px; }
+
+ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+ol.steps li { counter-increment: s; padding: 12px 0 12px 44px; border-top: 1px solid var(--hair); position: relative; }
+ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 15px; font: 500 13px/1 var(--mono); color: var(--soft); }
+ol.steps strong { font-weight: 700; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font: 400 15px/1.45 var(--sans); }
+td { padding: 10px 0; border-top: 1px solid var(--hair); vertical-align: top; }
+td:first-child { font: 500 15px/1.45 var(--mono); padding-right: 16px; white-space: nowrap; }
+.links { font: 500 15px/1.6 var(--sans); display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; }
+.links a { display: inline-block; min-height: 40px; padding-top: 8px; }
+.hero.solo { grid-template-columns: 1fr; }
+code { font: 400 14px/1.5 var(--mono); overflow-wrap: anywhere; }
+pre.read { font: 400 12px/1.45 var(--mono); white-space: pre; overflow-x: auto; margin: 16px 0; padding: 12px; border: 1px solid var(--hair); }
+.scroll { overflow-x: auto; }
+table.cmp { min-width: 560px; font-size: 14px; }
+table.cmp th { text-align: left; font: 500 13px/1.4 var(--mono); padding: 8px 12px 8px 0; color: var(--soft); }
+table.cmp td { padding-right: 12px; }
+table.cmp td:first-child { white-space: normal; width: 22%; font-size: 13px; }
+h3 { font: 600 19px/1.3 var(--serif); margin: 28px 0 8px; }
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { padding: 10px 0; border-top: 1px solid var(--hair); }
+.num { font: 400 12px/1.5 var(--mono); color: var(--soft); margin-left: 8px; }
+audio { width: 100%; margin: 4px 0 8px; }
+.mission p.caption, .caption { font: 400 13px/1.5 var(--sans); color: var(--soft); }
+.held { background: var(--amber); color: var(--ink); font: 500 13px/1.4 var(--mono); padding: 1px 4px; }
+footer p { margin: 0 0 4px; }
+table.vocab td:first-child { white-space: normal; width: 34%; }
+.builders { border-top: 1px solid var(--rule); padding-top: 16px; font: 400 16px/1.6 var(--sans); }
+.builders .label { margin-bottom: 12px; }
+footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px; font: 400 12px/1.6 var(--mono); color: var(--soft); }
+@media (max-width: 520px) {
+  .hero { grid-template-columns: 1fr; padding-top: 32px; }
+  .hero .big { order: -1; width: 96px; }
+  td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <a class="brand" href="../"><svg class="mark" viewBox="60 80 400 360" role="img" aria-label="Measured Instruments mark"><title>Measured Instruments mark</title><rect x="103.0" y="122.0" width="14" height="258.0" class="f0"/>
+<ellipse cx="110.0" cy="122.0" rx="25" ry="20" transform="rotate(-20 110.0 122.0)" class="f0"/>
+<rect x="155.0" y="226.6" width="14" height="153.4" fill="currentColor"/>
+<ellipse cx="162.0" cy="226.6" rx="25" ry="20" transform="rotate(-20 162.0 226.6)" fill="currentColor"/>
+<rect x="207.0" y="266.8" width="14" height="113.2" fill="currentColor"/>
+<ellipse cx="214.0" cy="266.8" rx="25" ry="20" transform="rotate(-20 214.0 266.8)" fill="currentColor"/>
+<rect x="259.0" y="272.4" width="14" height="107.6" fill="currentColor"/>
+<ellipse cx="266.0" cy="272.4" rx="25" ry="20" transform="rotate(-20 266.0 272.4)" fill="currentColor"/>
+<rect x="311.0" y="295.1" width="14" height="84.9" fill="currentColor"/>
+<ellipse cx="318.0" cy="295.1" rx="25" ry="20" transform="rotate(-20 318.0 295.1)" fill="currentColor"/>
+<rect x="363.0" y="312.7" width="14" height="67.3" fill="currentColor"/>
+<ellipse cx="370.0" cy="312.7" rx="25" ry="20" transform="rotate(-20 370.0 312.7)" fill="currentColor"/>
+<rect x="415.0" y="320.0" width="14" height="60.0" fill="currentColor"/>
+<ellipse cx="422.0" cy="320.0" rx="25" ry="20" transform="rotate(-20 422.0 320.0)" fill="currentColor"/>
+<rect x="90.0" y="394" width="352.0" height="5" fill="currentColor"/>
+<rect x="108.0" y="399" width="4" height="22" fill="currentColor"/>
+<rect x="160.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="212.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="264.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
+  <p class="rev"><span>draft 2026-10-17</span><br><span>last checked 2026-10-17</span></p>
+</header>
+
+<div class="hero solo">
+  <div>
+    <h1>How we work</h1>
+    <p class="lede">Most people's first worry about AI and creative work is that it flattens the work and the people behind it. These are the rules we hold ourselves to instead.</p>
+  </div>
+</div>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>1</b></span> Principles</h2>
+  <ol class="steps">
+    <li><strong>Fit the person.</strong> The interface bends to you. Agents refit it while you use it, inside limits you set.</li>
+    <li><strong>Fit, then check.</strong> An instrument is fitted to real recordings. Its numbers steer only after they agree with your ear, in a blind test.</li>
+    <li><strong>Collaborate where the value is.</strong> The agents do the engineering. You are asked only where your taste, your senses or your decision count, and then precisely.</li>
+    <li><strong>Deterministic parts, evolving structure.</strong> Agents build on deterministic operations, the layer everything else rests on, and keep adding to it until it matches the real thing. That is where the precision comes from.</li>
+    <li><strong>Yours, locally, in any harness.</strong> Your agent, your harness, your machine.</li>
+    <li><strong>Give back, and say where it came from.</strong> Open source. Credit the recordings and the people an instrument was measured from. Culture preserved, not flattened.</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>2</b></span> Words we use</h2>
+  <table class="vocab">
+    <tr><td>luthiers for agents</td><td>We make the parts, your agents make the instrument, and you say when it fits.</td></tr>
+    <tr><td>fitted interface</td><td>An interface fitted to its person the way an instrument is fitted to a recording: tuned to how they actually answer, and changed by the same loop.</td></tr>
+    <tr><td>collaborating where the value is</td><td>The agent does the measurable work. The person is asked only where their taste decides.</td></tr>
+    <tr><td>taste-in-the-loop</td><td>The person's taste is what the agent calibrates against, not a checkpoint that approves.</td></tr>
+    <tr><td>zero-time-iteration</td><td>When building an idea costs so little time that you find out whether it is useful by having the agent build it and using it straight away.</td></tr>
+    <tr><td>agent-shaped, human-shaped</td><td>The interface is agent-shaped on the agent side and human-shaped on the human side.</td></tr>
+    <tr><td>human-machine middleware</td><td>What ismail is: it sits between the person and the machine, turning what they perceive and do into operations, and adapting to their feedback.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>3</b></span> Credit where credit is due</h2>
+  <p>Giving credit is giving thanks. It pays something back, even if it only means one more person knows the work exists.</p>
+  <blockquote>This is all based on a part other people's research and a part my persistence, taste, and my ear<cite>Nate, who started Measured Instruments</cite></blockquote>
+  <p>Every piece made with ismail carries its own credits file, written by the agent: "Made with ismail" and every recording it measured to model a sound. <a href="https://github.com/newsbubbles/ismail#please-credit">How to credit ismail</a>.</p>
+  <h3>People and crafts</h3>
+  <ul class="plain">
+    <li><a href="https://en.wikipedia.org/wiki/Luthier">The luthier's craft</a>: The model for Measured Instruments: a maker who measures an instrument and fits it to the player.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Speech_synthesis">Speech science of the 1970s</a>: Why our measured voice is built from numbers you can direct, measured from real recordings, and not cloned by a neural model.</li>
+  </ul>
+  <h3>Methods our code builds on</h3>
+  <ul class="plain">
+    <li><a href="https://doi.org/10.1109/ICASSP.2014.6853678">pYIN pitch tracking (Mauch and Dixon, ICASSP 2014)</a>: Pitch and voicing for melody reads and for instruments measured from recordings.</li>
+    <li><a href="https://doi.org/10.1121/1.1458024">YIN pitch estimator (de Cheveigné and Kawahara, JASA 2002)</a>: Fine pitch per frame on top of pYIN's reading.</li>
+    <li><a href="https://www.itu.int/rec/R-REC-BS.1770">ITU-R BS.1770 loudness and EBU R128</a>: Loudness targets and true-peak checks for mastering and for fair comparisons, measured with pyloudnorm (Christian Steinmetz).</li>
+    <li><a href="https://ccrma.stanford.edu/~jos/pasp/">Digital waveguide synthesis (Julius O. Smith III, Physical Audio Signal Processing)</a>: Plucked strings for the electric guitar and bass.</li>
+    <li><a href="https://www.discodsp.net/VAFilterDesign_2.1.2.pdf">Topology-preserving state-variable filter (Vadim Zavalishin, The Art of VA Filter Design)</a>: The synth filter, studio and live.</li>
+    <li><a href="https://doi.org/10.1109/MSP.2007.323276">PolyBLEP oscillators (Välimäki and Huovilainen, IEEE Signal Processing Magazine 2007)</a>: Alias-reduced saw and square waves.</li>
+    <li><a href="https://ccrma.stanford.edu/~jos/pasp/Freeverb.html">Freeverb (Jezar at Dreampoint, public domain)</a>: The reverb, studio and live.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Modal_synthesis">Modal synthesis</a>: A 1970s drum kit as banks of resonators struck by the stick.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Carol_L._Krumhansl">Key profiles (Carol Krumhansl)</a>: Key estimates for a song or a range of bars.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Linear_predictive_coding">Linear prediction (LPC) formant tracking</a>: The vowel view of a voice.</li>
+    <li><a href="https://github.com/facebookresearch/demucs">Hybrid Transformer Demucs (Rouard, Massa and Défossez, 2023)</a>: Stem separation of a reference, so the agent compares drums with drums and bass with bass.</li>
+    <li><a href="https://arxiv.org/abs/2211.06687">LAION-CLAP audio embeddings (Wu, Chen and others, ICASSP 2023)</a>: A perceptual similarity score next to the hand-made metrics.</li>
+    <li><a href="https://librosa.org">librosa (McFee and others, SciPy 2015)</a>: The audio analysis library under pitch, LPC and spectra.</li>
+    <li><a href="https://zenodo.org/records/1442513">VocalSet (Wilkins, Seetharaman, Wahl and Pardo, ISMIR 2018), CC BY 4.0</a>: Sung vowels and vibrato habits from open recordings.</li>
+    <li><a href="https://doi.org/10.1587/transinf.2015EDP7457">WORLD vocoder (Morise, Yokomori and Ozawa, IEICE 2016)</a>: Splits a voice into pitch, envelope and breath, so the autotune effect moves the pitch and leaves the rest.</li>
+    <li><a href="https://www.dafx.de/paper-archive/2006/papers/p_001.pdf">Tone-stack model (Yeh and Smith, DAFx 2006)</a>: The amp's tone stack as an analytic filter.</li>
+    <li><a href="https://www.dafx.de/paper-archive/2004/P_061.PDF">Moog ladder model (Antti Huovilainen, DAFx 2004)</a>: A light four-pole ladder filter, studio and live.</li>
+    <li><a href="https://patents.google.com/patent/US3236949A/en">Crosstalk cancellation (Atal and Schroeder, Bell Labs, US patent 3,236,949)</a>: The crosstalk canceller in the spatial audio code.</li>
+    <li><a href="https://doi.org/10.1044/jshr.1804.686">Dennis Klatt, aspiration (JSHR 1975)</a>: Aspiration in the measured voice, and with his 1979 chapter, "Synthesis by rule of segmental durations in English sentences" (Frontiers of Speech Communication Research, Lindblom and &Ouml;hman, eds.), its duration rules.</li>
+  </ul>
+  <h3>Neighbours and earlier ground</h3>
+  <ul class="plain">
+    <li><a href="https://doi.org/10.2307/3680788">Spectral Modeling Synthesis</a> (Serra and Smith, Computer Music Journal 1990): Our instruments measured from recordings play a note as harmonics plus shaped noise, the split SMS describes.</li>
+    <li><a href="https://strudel.cc">Strudel</a> and <a href="https://tidalcycles.org">TidalCycles</a> (Felix Roos, Alex McLean and contributors): Earlier ground: our first experiments with language models writing music ran on Strudel, before ismail.</li>
+    <li><a href="https://github.com/luwux/synth-rl">synth-rl</a> and <a href="https://arxiv.org/abs/2512.01559">LLM2Fx-Tools</a> (Sony AI and KAIST): Neighbours: work that also measures sound against a reference.</li>
+    <li><a href="https://arxiv.org/abs/2607.19605">RIME</a> and <a href="https://arxiv.org/abs/2606.22708">Libretto</a> (Schaffer and Singh, Dartmouth; Yichen Xu, Berkeley): Research on agents doing music work with tools and measured feedback.</li>
+    <li><a href="https://doi.org/10.1076/jnmr.32.3.333.16861">The Continuator</a> (Fran&ccedil;ois Pachet, Sony CSL, Journal of New Music Research 2003): An early system that played back in the style of a live player.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>4</b></span> The company</h2>
+  <p>Measured Instruments LLC, a Wyoming limited liability company. It makes the instruments and interfaces on this site and publishes them as open source. Write to <a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a>.</p>
+</section>
+<footer>
+  <p>Measured Instruments LLC, a Wyoming limited liability company</p>
+  <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
+  <p>draft 2026-10-17 &middot; last checked 2026-10-17 &middot; <a href="../">home</a> &middot; <a href="../ismail/">ismail</a> &middot; <a href="../how/">how we work</a> &middot; <a href="../team/">team</a> &middot; <a href="../agents/">for agents</a></p>
+</footer>
+</main>
+</body>
+</html>

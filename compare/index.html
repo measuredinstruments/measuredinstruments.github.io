@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparisons: Measured Instruments</title>
+<meta name="description" content="Honest comparisons: which tool should your agent use?">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #EDEAE3; --ink: #0E0E10; --amber: #F2A33A;
+  --ground: var(--paper); --fg: var(--ink); --rule: #0E0E10; --soft: #3a3833;
+  --hair: color-mix(in srgb, var(--rule) 25%, transparent);
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --measure: 64ch; --gutter: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: var(--ink); --fg: var(--paper); --rule: #EDEAE3; --soft: #c9c5bb; }
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); color: var(--fg); }
+body { margin: 0; font: 400 18px/1.6 var(--serif); }
+main { max-width: calc(var(--measure) + 2 * var(--gutter)); margin: 0 auto; padding: 32px var(--gutter) 64px; }
+a { color: inherit; text-decoration-color: var(--amber); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 4px; }
+.f0 { fill: var(--amber); }
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+.brand { text-decoration: none; display: flex; align-items: center; gap: 10px; font: 500 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.brand .mark { width: 30px; height: 27px; color: var(--fg); flex: none; }
+.rev { font: 400 12px/1.4 var(--mono); color: var(--soft); margin: 0; text-align: right; }
+.rev span { white-space: nowrap; }
+
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; padding: 48px 0 32px; border-bottom: 1px solid var(--rule); }
+.hero h1 { font: 700 clamp(40px, 10vw, 68px)/0.98 var(--serif); letter-spacing: -0.02em; margin: 0 0 20px; }
+.hero .lede { font: 400 clamp(20px, 3.4vw, 24px)/1.4 var(--serif); margin: 0; max-width: 30ch; }
+.hero .big { width: clamp(110px, 24vw, 190px); height: auto; color: var(--fg); }
+
+.mission { margin: 32px 0; padding: 16px 20px; border: 1px solid var(--rule); }
+.label { font: 500 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; color: var(--soft); }
+.mission p { margin: 0 0 8px; font-size: 19px; line-height: 1.5; }
+.mission p:last-child { margin: 0; }
+
+section { margin: 48px 0; }
+section h2 { font: 600 24px/1.2 var(--serif); margin: 0 0 12px; display: flex; align-items: flex-end; gap: 12px; }
+section p { margin: 0 0 14px; }
+.scale { display: inline-flex; align-items: flex-end; gap: 5px; height: 26px; border-bottom: 2px solid var(--rule); padding: 0 2px; flex: none; }
+.scale i { display: block; width: 2px; height: 8px; background: var(--fg); }
+.scale b { display: block; font: 500 12px/1 var(--mono); border-left: 2px solid var(--amber); padding: 0 0 4px 4px; height: 24px; }
+blockquote { margin: 18px 0; padding: 2px 0 2px 16px; border-left: 2px solid var(--amber); font-style: italic; }
+blockquote cite { display: block; font: 400 12px/1.5 var(--mono); font-style: normal; color: var(--soft); margin-top: 6px; }
+
+ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+ol.steps li { counter-increment: s; padding: 12px 0 12px 44px; border-top: 1px solid var(--hair); position: relative; }
+ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 15px; font: 500 13px/1 var(--mono); color: var(--soft); }
+ol.steps strong { font-weight: 700; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font: 400 15px/1.45 var(--sans); }
+td { padding: 10px 0; border-top: 1px solid var(--hair); vertical-align: top; }
+td:first-child { font: 500 15px/1.45 var(--mono); padding-right: 16px; white-space: nowrap; }
+.links { font: 500 15px/1.6 var(--sans); display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; }
+.links a { display: inline-block; min-height: 40px; padding-top: 8px; }
+.hero.solo { grid-template-columns: 1fr; }
+code { font: 400 14px/1.5 var(--mono); overflow-wrap: anywhere; }
+pre.read { font: 400 12px/1.45 var(--mono); white-space: pre; overflow-x: auto; margin: 16px 0; padding: 12px; border: 1px solid var(--hair); }
+.scroll { overflow-x: auto; }
+table.cmp { min-width: 560px; font-size: 14px; }
+table.cmp th { text-align: left; font: 500 13px/1.4 var(--mono); padding: 8px 12px 8px 0; color: var(--soft); }
+table.cmp td { padding-right: 12px; }
+table.cmp td:first-child { white-space: normal; width: 22%; font-size: 13px; }
+h3 { font: 600 19px/1.3 var(--serif); margin: 28px 0 8px; }
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { padding: 10px 0; border-top: 1px solid var(--hair); }
+.num { font: 400 12px/1.5 var(--mono); color: var(--soft); margin-left: 8px; }
+audio { width: 100%; margin: 4px 0 8px; }
+.mission p.caption, .caption { font: 400 13px/1.5 var(--sans); color: var(--soft); }
+.held { background: var(--amber); color: var(--ink); font: 500 13px/1.4 var(--mono); padding: 1px 4px; }
+footer p { margin: 0 0 4px; }
+table.vocab td:first-child { white-space: normal; width: 34%; }
+.builders { border-top: 1px solid var(--rule); padding-top: 16px; font: 400 16px/1.6 var(--sans); }
+.builders .label { margin-bottom: 12px; }
+footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px; font: 400 12px/1.6 var(--mono); color: var(--soft); }
+@media (max-width: 520px) {
+  .hero { grid-template-columns: 1fr; padding-top: 32px; }
+  .hero .big { order: -1; width: 96px; }
+  td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <a class="brand" href="../"><svg class="mark" viewBox="60 80 400 360" role="img" aria-label="Measured Instruments mark"><title>Measured Instruments mark</title><rect x="103.0" y="122.0" width="14" height="258.0" class="f0"/>
+<ellipse cx="110.0" cy="122.0" rx="25" ry="20" transform="rotate(-20 110.0 122.0)" class="f0"/>
+<rect x="155.0" y="226.6" width="14" height="153.4" fill="currentColor"/>
+<ellipse cx="162.0" cy="226.6" rx="25" ry="20" transform="rotate(-20 162.0 226.6)" fill="currentColor"/>
+<rect x="207.0" y="266.8" width="14" height="113.2" fill="currentColor"/>
+<ellipse cx="214.0" cy="266.8" rx="25" ry="20" transform="rotate(-20 214.0 266.8)" fill="currentColor"/>
+<rect x="259.0" y="272.4" width="14" height="107.6" fill="currentColor"/>
+<ellipse cx="266.0" cy="272.4" rx="25" ry="20" transform="rotate(-20 266.0 272.4)" fill="currentColor"/>
+<rect x="311.0" y="295.1" width="14" height="84.9" fill="currentColor"/>
+<ellipse cx="318.0" cy="295.1" rx="25" ry="20" transform="rotate(-20 318.0 295.1)" fill="currentColor"/>
+<rect x="363.0" y="312.7" width="14" height="67.3" fill="currentColor"/>
+<ellipse cx="370.0" cy="312.7" rx="25" ry="20" transform="rotate(-20 370.0 312.7)" fill="currentColor"/>
+<rect x="415.0" y="320.0" width="14" height="60.0" fill="currentColor"/>
+<ellipse cx="422.0" cy="320.0" rx="25" ry="20" transform="rotate(-20 422.0 320.0)" fill="currentColor"/>
+<rect x="90.0" y="394" width="352.0" height="5" fill="currentColor"/>
+<rect x="108.0" y="399" width="4" height="22" fill="currentColor"/>
+<rect x="160.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="212.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="264.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
+<rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
+  <p class="rev"><span>draft 2026-10-17</span><br><span>last checked 2026-10-17</span></p>
+</header>
+
+<div class="hero solo">
+  <div>
+    <h1>Comparisons</h1>
+    <p class="lede">Which tool should your agent use? Each page gives a short answer, says when to choose the other one, and links every line about another project to where we read it.</p>
+  </div>
+</div>
+
+<section>
+  <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>1</b></span> Pages</h2>
+  <ul class="plain">
+    <li><a href="ableton-mcp/">ismail and Ableton MCP servers: when to pick which</a></li>
+    <li><a href="music-video-soundtrack/">The soundtrack for your Claude music video: Suno or ismail?</a></li>
+    <li><a href="soundcraft/">ismail and SoundCraft: when to pick which</a></li>
+  </ul>
+</section>
+<footer>
+  <p>Measured Instruments LLC, a Wyoming limited liability company</p>
+  <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
+  <p>draft 2026-10-17 &middot; last checked 2026-10-17 &middot; <a href="../">home</a> &middot; <a href="../ismail/">ismail</a> &middot; <a href="../how/">how we work</a> &middot; <a href="../team/">team</a> &middot; <a href="../agents/">for agents</a></p>
+</footer>
+</main>
+</body>
+</html>
