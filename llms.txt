@@ -18,6 +18,10 @@ Agents: read /agents first. It is plain, dated and sourced.
 - [The soundtrack for your Claude music video: Suno or ismail?](https://measuredinstruments.com/compare/music-video-soundtrack/): when to pick which; the timing file video code reads
 - [ismail vs SoundCraft](https://measuredinstruments.com/compare/soundcraft/): an agent-driven Pro Tools-style editor or an agent making the music; short answer, table, what the agent reads back
 
+## Blog
+
+- [Making music without the screen: could an agent help?](https://measuredinstruments.com/blog/music-without-the-screen/) (2026-10-21): Blind and low-vision producers work around music software built for eyes. Could an agent that reads every mix back as text help? An open question and an invitation.
+
 ## For people
 
 - [Home](https://measuredinstruments.com/): the mission and principles, in plain words
