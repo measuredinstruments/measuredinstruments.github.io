@@ -151,6 +151,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>A screen for you</td><td>Built by the agent when you need it: a phone page, feedback pages, a VR stage</td><td>A full Pro Tools-style desktop app</td></tr>
     <tr><td>What the agent gets back about the sound</td><td>Every render as text: about 40 tools for levels, grid, key, chords, melody, drums, swing, structure, timbre and comparisons</td><td>Peak and integrated loudness on a bounce, the session state and screenshots (<a href="https://github.com/storytold/soundcraft/blob/main/docs/mcp.md">MCP docs</a>); beat times and tempo found in audio (Beat Detective), and a chord name per bar from MIDI notes (Extract Chords) (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Instruments</td><td>Its own synths, drum synths, samplers, voices written in Python, and instruments measured from a recording</td><td>Its own synths, drum synth and sampler, plus CLAP, VST3 and AU plugins (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
+    <tr><td>Mixing and mastering</td><td>The agent mixes with effects it writes as code: EQ, compressor with sidechain, gate, limiter, reverb, delay, a guitar amp and cab, sound moved in 3D, and more, with automation on tracks, buses and the master. <code>master_cue</code> masters a finished song to a loudness target and a true-peak ceiling, and every render reports its loudness (LUFS) and true peak</td><td>A full mixer: ten inserts and ten sends per track, busses, aux inputs, VCAs, and automation on every plugin parameter. Its own EQ, compressor/limiter, gate, de-esser, maximizer, reverbs, delay and more, plus your plugins. A bounce can dither and normalise, and reports peak, true peak and integrated loudness (LUFS) (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Recording</td><td>A person's take goes in as an audio file; a live set's output can be recorded</td><td>Multitrack recording and comping (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>MIDI</td><td>MIDI files in and out; live MIDI in from a keyboard through a live set; notes and MIDI clock out to synths and other apps (tested into FL Studio)</td><td>MIDI files and MIDI out (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Matching a reference</td><td>Grid and swing measured from a record, scored comparisons, transcription by consensus</td><td>Beat Detective finds beats in audio; Extract Chords names chords from MIDI notes (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
@@ -200,6 +201,8 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
     <li>You want the agent to do the whole job: write, render, check the result, fix, render again, and ask you what you hear.</li>
     <li>You want to steer by listening and talking, from your phone or a VR stage, not by clicking through menus.</li>
     <li>You want to build an instrument from recorded notes (a few for most instruments, more for one whose colour changes note to note, like the piano), or match the feel of a reference record.</li>
+    <li>You want the agent to do the sound engineering too: mix, master to a loudness target, and check both with numbers.</li>
+    <li>You want to jam: play or sing a part into your phone and hear it come back as a loop.</li>
     <li>You want the agent to play a set live.</li>
   </ul>
 
@@ -226,7 +229,7 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
 
   <pre class="read">Set me up with ismail: https://github.com/newsbubbles/ismail</pre>
 
-  <p><em>Sources, read 20 October 2026 and re-checked 22 October 2026: SoundCraft README, docs/mcp.md, docs/control-protocol.md and its menu catalog; star counts and licence from the GitHub API. ismail facts from its README and its tool list on main.</em></p>
+  <p><em>Sources, read 20 October 2026 and re-checked 22 October 2026 (the mixing and mastering row read 25 October 2026): SoundCraft README, docs/mcp.md, docs/control-protocol.md and its menu catalog; star counts and licence from the GitHub API. ismail facts from its README and its tool list on main.</em></p>
 
 </section>
 <footer>
