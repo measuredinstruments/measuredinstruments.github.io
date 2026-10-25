@@ -150,10 +150,10 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>What you need installed</td><td>Python 3.10+ and an MCP client (Claude Code, Codex, Cursor and others). Windows, macOS, Linux</td><td>Ableton Live, plus the server. ableton-mcp needs Live 10.1.13 or newer. Producer Pal needs Live 12.3+ with Max for Live</td></tr>
     <tr><td>Cost</td><td>Free (MIT)</td><td>Live costs 99 USD (Intro), 349 USD (Standard) or 749 USD (Suite); Max for Live comes with Suite (<a href="https://www.ableton.com/en/shop/live/">Ableton shop</a>). Most servers are free</td></tr>
     <tr><td>Who makes the sound</td><td>ismail's own instruments: synths, drum synths, samplers, instruments measured from recordings, voices written in Python</td><td>Live and the plugins you own</td></tr>
-    <tr><td>Rendering to a file</td><td>Yes: 24-bit WAV, stems per track, MP3 for listening</td><td>Depends on the server. A June 2026 guide says ableton-mcp "doesn't render audio" (<a href="https://mcp.directory/blog/ableton-mcp-complete-guide-2026">mcp.directory</a>)</td></tr>
+    <tr><td>Rendering to a file</td><td>Yes: 24-bit WAV, stems per track, MP3 for listening</td><td>Depends on the server. ableton-mcp's 37 tools have no render or export tool (<a href="https://github.com/ahujasid/ableton-mcp/blob/main/MCP_Server/server.py">its server code</a>, 23 Oct 2026)</td></tr>
     <tr><td>What the agent gets back about the sound</td><td>Every render as text: levels, drum lanes, piano rolls, chords, structure, comparisons</td><td>Mostly the project (tracks, clips, notes, parameters). Producer Pal's own page says it "cannot listen to, analyze, or transcribe the audio itself" (<a href="https://producer-pal.org/features/limitations">limitations</a>). LivePilot adds mix measurements (loudness, spectrum, reference comparison). bschoepke's server can tap audio through a Max for Live device</td></tr>
     <tr><td>Playing live</td><td>The agent plays songs on decks, makes transitions and edits while the music runs</td><td>Live is made for live performance by a person; the agent can start and stop clips</td></tr>
-    <tr><td>MIDI and plugins</td><td>Live MIDI in through a live set; no MIDI files in or out, no plugin hosting</td><td>Full MIDI and every plugin Live runs</td></tr>
+    <tr><td>MIDI and plugins</td><td>MIDI files in and out (any DAW opens the export; a .mid reads into tracks); live MIDI in from a keyboard through a live set; notes and MIDI clock out to synths and other apps (tested into FL Studio). The sound comes from ismail's own instruments and effects, and the agent writes a new one in Python when a song needs it</td><td>Full MIDI and every plugin Live runs</td></tr>
     <tr><td>The song is</td><td>A project folder of text files, so git history, diffs and code review work on music</td><td>A Live set</td></tr>
     <tr><td>GitHub stars (22 Oct 2026)</td><td>17</td><td>ableton-mcp 3,220; Producer Pal 338; bschoepke 231; LivePilot 88</td></tr>
   </table></div>
@@ -163,7 +163,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 <section>
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>3</b></span> What "the render comes back as text" looks like</h2>
 
-  <p>This is part of what ismail's agent reads from a finished track, <a href="https://newsbubbles.github.io/ismail/#ukestory">Uke Story</a> (a jam built from phone recordings of a ukulele, beatbox and a voice). First the grid: 96 BPM, bar 1 at 0.013 s, tuning 1 cent above A440. Then the arrangement, one character per bar (9 = loudest, each step down = 4 dB):</p>
+  <p>This is part of what ismail's agent reads from a finished track, <a href="https://newsbubbles.github.io/ismail/#ukestory">Uke Story</a> (a jam built from phone recordings of a ukulele, beatbox and a voice). First the grid: 96 BPM, 4/4, bar 1 at 0.0 s. Then the arrangement, one character per bar (9 = loudest, each step down = 4 dB):</p>
 
   <pre class="read">      bar 123456789012345678901234567890123456789012345678901234567890...
       mix 66666687787787787887888888888888888888888888888878889999888888...
@@ -185,7 +185,6 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
     <li>You already own Live and make music in it, and want an assistant inside your own sets.</li>
     <li>You rely on your plugins, sample packs or MIDI controllers.</li>
     <li>You want to keep your hands on every decision and use the agent for the tedious parts.</li>
-    <li>You need MIDI files or MIDI out. ismail takes live MIDI in only.</li>
   </ul>
 
 </section>
@@ -197,7 +196,7 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
     <li>You don't own Live, or you want a setup an agent can install by itself on any machine.</li>
     <li>You want the agent to do the whole job: write, render, check the result, fix, render again.</li>
     <li>You want the agent to check its own renders with numbers before you listen, so you spend your time on taste and not on catching a silent track or a clipping master.</li>
-    <li>You want to build an instrument from recordings (ismail measures a few notes and plays the rest).</li>
+    <li>You want to build an instrument from recordings (ismail measures a few notes and plays the rest; an instrument whose colour changes from note to note, like the piano, needs more of them).</li>
     <li>You want the agent to play a set live on decks.</li>
     <li>You want songs as text in git.</li>
   </ul>
@@ -207,14 +206,14 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
 <section>
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>6</b></span> Can I use both?</h2>
 
-  <p>Yes, through audio files. ismail renders each track as its own WAV stem, and Live imports WAV. There is no MIDI export today, so the notes do not move across; the sound does.</p>
+  <p>Yes, and both the sound and the notes move across. ismail renders each track as its own WAV stem, which Live imports, and <code>midi_write</code> exports the notes as a .mid with a track per part, tempo and markers.</p>
 
 </section>
 
 <section>
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>7</b></span> Where ismail falls short</h2>
 
-  <p>ismail says this on its own README, and it applies here: a new song from a blank page can sound generic on the first sketch; it is strongest with something to measure (a reference, a live set, a scene). It has no singing voice, one tempo per project, no MIDI import or export and no plugin hosting. It needs a capable agent, and your ear stays the final judge.</p>
+  <p>ismail says this on its own README, and it applies here: a new song from a blank page can sound generic on the first sketch; it is strongest with something to measure (a reference, a live set, a scene). It has no singing voice and one tempo per project. In a live set, the agent's own changes land between its turns, 5 to 30 seconds apart (your taps act at once). It needs a capable agent, and your ear stays the final judge; the listening tests so far had one listener.</p>
 
 </section>
 

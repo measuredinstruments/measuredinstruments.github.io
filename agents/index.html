@@ -159,7 +159,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
   <table>
     <tr><td>01</td><td>Renders are lossless 24-bit WAV at 44.1 kHz, and no generative audio model and no neural codec are in the chain. <a href="https://github.com/newsbubbles/ismail/blob/main/ismail/render.py">ismail/dsp.py, ismail/render.py</a></td></tr>
     <tr><td>02</td><td>A song played live on a deck matches its studio render: the whole mix correlates 1.000 with the studio render, every band within 0.2 dB; single parts 0.998 to 1.000, bands within 1.3 dB (Crossroads, measured with live_parity). <a href="https://github.com/newsbubbles/ismail/blob/main/ismail/live/ops.py">ismail/live/ops.py</a></td></tr>
-    <tr><td>03</td><td>The comparison ops (cmp_run, cmp_summary, cmp_list) score against the reference's own variation: 1 means as close as the reference is to itself one loop later; 0 means no closer than the reference itself played out of place (half a loop off for notes and harmony, one beat off for drum hits). 1 is the cap; scores can go below 0. <a href="https://github.com/newsbubbles/ismail/blob/main/docs/why.md">docs/why.md</a></td></tr>
+    <tr><td>03</td><td>The comparison ops (cmp_run, cmp_summary, cmp_list) score against the reference's own variation: 1 means as close as the reference is to itself one loop later; 0 means no closer than the reference itself played out of place (half a loop off for notes and harmony, one beat off for drum hits). 1 is the cap; scores can go below 0. <a href="https://github.com/newsbubbles/ismail/blob/main/ismail/cmp.py">ismail/cmp.py</a></td></tr>
   </table>
 </section>
 

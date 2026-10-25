@@ -129,7 +129,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 
 <div class="mission">
   <p class="label">Short answer</p>
-  <p>If you record and edit audio the Pro Tools way, want your plugins and MIDI, and want an agent to drive the same app you use, use <a href="https://github.com/storytold/soundcraft">SoundCraft</a>. If you want the agent to make the music itself and check every render as text before you listen, use <a href="https://github.com/newsbubbles/ismail">ismail</a>. They do different jobs and can work together through audio files.</p>
+  <p>If you record and edit audio the Pro Tools way, want your plugins and MIDI, and want an agent to drive the same app you use, use <a href="https://github.com/storytold/soundcraft">SoundCraft</a>. If you want the agent to make the music itself and check every render as text before you listen, use <a href="https://github.com/newsbubbles/ismail">ismail</a>. They do different jobs and can work together through audio and MIDI files.</p>
 </div>
 
 <section>
@@ -152,10 +152,10 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>What the agent gets back about the sound</td><td>Every render as text: about 40 tools for levels, grid, key, chords, melody, drums, swing, structure, timbre and comparisons</td><td>Peak and integrated loudness on a bounce, the session state and screenshots (<a href="https://github.com/storytold/soundcraft/blob/main/docs/mcp.md">MCP docs</a>); beat times and tempo found in audio (Beat Detective), and a chord name per bar from MIDI notes (Extract Chords) (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Instruments</td><td>Its own synths, drum synths, samplers, voices written in Python, and instruments measured from a recording</td><td>Its own synths, drum synth and sampler, plus CLAP, VST3 and AU plugins (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Recording</td><td>A person's take goes in as an audio file; a live set's output can be recorded</td><td>Multitrack recording and comping (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
-    <tr><td>MIDI</td><td>Live MIDI in through a live set; no MIDI files in or out</td><td>MIDI files and MIDI out (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
+    <tr><td>MIDI</td><td>MIDI files in and out; live MIDI in from a keyboard through a live set; notes and MIDI clock out to synths and other apps (tested into FL Studio)</td><td>MIDI files and MIDI out (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Matching a reference</td><td>Grid and swing measured from a record, scored comparisons, transcription by consensus</td><td>Beat Detective finds beats in audio; Extract Chords names chords from MIDI notes (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Playing live</td><td>Decks, transitions and edits while the music runs</td><td>Not described in its docs</td></tr>
-    <tr><td>Tempo</td><td>One tempo per project (a tempo change is in review)</td><td>Tempo maps (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
+    <tr><td>Tempo</td><td>One tempo per project</td><td>Tempo maps (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Surround</td><td>Stereo</td><td>Up to 9.1.6 and Ambisonics (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>The song is</td><td>A folder of text files the agent writes directly: notes, voices, effects and the mix</td><td>A JSON session file (.scraft) with an Audio Files folder (<a href="https://github.com/storytold/soundcraft/blob/main/docs/file-format-parity.md">file formats</a>)</td></tr>
     <tr><td>Licence and cost</td><td>Free, MIT</td><td>Free, open source (Apache-2.0 per GitHub)</td></tr>
@@ -187,7 +187,7 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
 
   <ul class="plain">
     <li>You record, comp and edit audio and want a Pro Tools workflow without Pro Tools.</li>
-    <li>You rely on your plugins, MIDI files or surround.</li>
+    <li>You rely on your plugins or surround.</li>
     <li>You want to stay at the controls and let an agent handle the tedious edits in the same app.</li>
   </ul>
 
@@ -199,7 +199,7 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
   <ul class="plain">
     <li>You want the agent to do the whole job: write, render, check the result, fix, render again, and ask you what you hear.</li>
     <li>You want to steer by listening and talking, from your phone or a VR stage, not by clicking through menus.</li>
-    <li>You want to build an instrument from a few recorded notes, or match the feel of a reference record.</li>
+    <li>You want to build an instrument from recorded notes (a few for most instruments, more for one whose colour changes note to note, like the piano), or match the feel of a reference record.</li>
     <li>You want the agent to play a set live.</li>
   </ul>
 
@@ -208,14 +208,14 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
 <section>
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>6</b></span> Can I use both?</h2>
 
-  <p>Yes, through audio files. ismail renders each track as its own WAV stem, which a DAW can import. ismail can measure and plan; SoundCraft can host your plugins and edit recordings.</p>
+  <p>Yes, through stems and MIDI files. ismail renders each track as its own WAV stem and exports the notes as a .mid, and a DAW imports both. ismail can measure and plan; SoundCraft can host your plugins and edit recordings.</p>
 
 </section>
 
 <section>
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>7</b></span> Where ismail falls short</h2>
 
-  <p>ismail says this on its own README: a new song from a blank page can sound generic on the first sketch, and it is strongest with something to measure. It has no singing voice, one tempo per project, no MIDI files and no plugin hosting. It needs a capable agent, and your ear stays the final judge.</p>
+  <p>ismail says this on its own README: a new song from a blank page can sound generic on the first sketch, and it is strongest with something to measure. It has no singing voice and one tempo per project. In a live set, the agent's own changes land between its turns, 5 to 30 seconds apart, and the VR stage is tested on one headset with one person. It needs a capable agent, and your ear stays the final judge; the listening tests so far had one listener.</p>
 
 </section>
 
