@@ -24,6 +24,7 @@ Agents: read /agents first. It is plain, dated and sourced.
 
 ## For people
 
+- [FAQ](https://measuredinstruments.com/faq/): Questions about ismail: what it is, why it has no UI, whether it's really free, how it compares to a DAW, and who owns the music you make.
 - [Home](https://measuredinstruments.com/): the mission and principles, in plain words
 - [How we work](https://measuredinstruments.com/how/): principles, the words we use, what inspired us
 - [Team](https://measuredinstruments.com/team/): who does what, how to contribute
