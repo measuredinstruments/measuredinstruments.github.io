@@ -146,7 +146,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 
   <div class="scroll"><table class="cmp">
     <tr><th></th><th>ismail</th><th>Suno</th></tr>
-    <tr><td>What you get</td><td>A project your agent wrote: notes, instruments, effects, mix. Rendered to WAV, one stem per track</td><td>A finished, mixed song from a prompt, vocals included</td></tr>
+    <tr><td>What you get</td><td>A project your agent wrote: notes, instruments, effects, mix. Rendered to WAV, one stem per track, mastered to the loudness you ask for (every render reports its LUFS and true peak), and the notes as a .mid file</td><td>A finished, mixed song from a prompt, vocals included</td></tr>
     <tr><td>Vocals</td><td>No singing voice. Speech and vocoder-style voices only</td><td>Yes, sung lyrics</td></tr>
     <tr><td>Changing one part</td><td>Edit one note, bar, sound or fader, render again; everything else stays as it was</td><td>Regenerate or replace a section. Suno Studio (Premier plan) edits MIDI on a timeline (<a href="https://suno.com/release-notes">release notes</a>)</td></tr>
     <tr><td>Timing for your visuals</td><td>The notes are the source, so the agent knows when every note lands. <code>python -m ismail.video sync</code> writes every note with its video frame (to the nearest frame), plus loudness per frame, to a JSON file your video code can read</td><td>You get audio. Timing comes from listening, or from analysing the file</td></tr>
@@ -207,6 +207,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
   <ul class="plain">
     <li>The music is instrumental: a score, a bed under narration, a loop, a beat, sound design.</li>
     <li>You want to change the music the way you change the visuals: one bar at a time.</li>
+    <li>You want the track mastered to a loudness target (for YouTube, or under a voice-over) and checked with numbers.</li>
     <li>You want the visuals to land on the music exactly, from the notes and not from guessing.</li>
     <li>You want the files on your disk with no download limit, and the right to use them commercially.</li>
     <li>You want one agent session to make both the picture and the sound.</li>
@@ -232,7 +233,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 
   <p>From ismail's own README: a first sketch from a blank page can sound generic; it is strongest when there is something to measure. No singing voice, and one tempo per project. It needs a capable agent, and your ear is the final judge; the listening tests so far had one listener.</p>
 
-  <p><em>Sources, read 19 October 2026 and re-checked 22 October 2026: <a href="https://suno.com/pricing">suno.com/pricing</a>, <a href="https://suno.com/terms">suno.com/terms</a> (effective 3 September 2026), <a href="https://help.suno.com/en/articles/13926209">help.suno.com article 13926209</a> (download limits), <a href="https://suno.com/release-notes">suno.com/release-notes</a>. ismail facts from its README, docs/reference.md and the ismail.video source.</em></p>
+  <p><em>Sources, read 19 October 2026 and re-checked 22 October 2026: <a href="https://suno.com/pricing">suno.com/pricing</a>, <a href="https://suno.com/terms">suno.com/terms</a> (effective 3 September 2026), <a href="https://help.suno.com/en/articles/13926209">help.suno.com article 13926209</a> (download limits), <a href="https://suno.com/release-notes">suno.com/release-notes</a>. ismail facts from its README, docs/reference.md and the ismail.video source (the mastering and .mid lines read 26 October 2026).</em></p>
 
 </section>
 <footer>
