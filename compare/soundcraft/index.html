@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ismail vs SoundCraft: Measured Instruments</title>
 <meta name="description" content="ismail vs SoundCraft: which one should your agent use? A short answer, a side-by-side table and what the agent reads back from a render.">
+<link rel="canonical" href="https://measuredinstruments.com/compare/soundcraft/">
+<meta property="og:site_name" content="Measured Instruments">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ismail vs SoundCraft: Measured Instruments">
+<meta property="og:description" content="ismail vs SoundCraft: which one should your agent use? A short answer, a side-by-side table and what the agent reads back from a render.">
+<meta property="og:url" content="https://measuredinstruments.com/compare/soundcraft/">
+<meta property="og:image" content="https://measuredinstruments.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Measured Instruments: luthiers for agents">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://measuredinstruments.com/"}, {"@type": "ListItem", "position": 2, "name": "Comparisons", "item": "https://measuredinstruments.com/compare/"}, {"@type": "ListItem", "position": 3, "name": "ismail vs SoundCraft", "item": "https://measuredinstruments.com/compare/soundcraft/"}]}</script>
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,8 +164,8 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>What the agent gets back about the sound</td><td>Every render as text: about 40 tools for levels, grid, key, chords, melody, drums, swing, structure, timbre and comparisons</td><td>Peak and integrated loudness on a bounce, the session state and screenshots (<a href="https://github.com/storytold/soundcraft/blob/main/docs/mcp.md">MCP docs</a>); beat times and tempo found in audio (Beat Detective), and a chord name per bar from MIDI notes (Extract Chords) (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Instruments</td><td>Its own synths, drum synths, samplers, voices written in Python, and instruments measured from a recording</td><td>Its own synths, drum synth and sampler, plus CLAP, VST3 and AU plugins (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Mixing and mastering</td><td>The agent mixes with effects it writes as code: EQ, compressor with sidechain, gate, limiter, reverb, delay, a guitar amp and cab, sound moved in 3D, and more, with automation on tracks, buses and the master. <code>master_cue</code> masters a finished song to a loudness target and a true-peak ceiling, and every render reports its loudness (LUFS) and true peak</td><td>A full mixer: ten inserts and ten sends per track, busses, aux inputs, VCAs, and automation on every plugin parameter. Its own EQ, compressor/limiter, gate, de-esser, maximizer, reverbs, delay and more, plus your plugins. A bounce can dither and normalise, and reports peak, true peak and integrated loudness (LUFS) (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
-    <tr><td>Recording</td><td>A person's take goes in as an audio file; a live set's output can be recorded</td><td>Multitrack recording and comping (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
-    <tr><td>MIDI</td><td>MIDI files in and out; live MIDI in from a keyboard through a live set; notes and MIDI clock out to synths and other apps (tested into FL Studio)</td><td>MIDI files and MIDI out (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
+    <tr><td>Recording</td><td>A person's take goes in as an audio file, and what they play on a MIDI keyboard goes into a track as notes; a live set's output can be recorded</td><td>Multitrack recording and comping (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
+    <tr><td>MIDI</td><td>MIDI files in and out; live MIDI in from a keyboard through a live set, and what you played goes into a song track as notes in one call (as played or snapped to the grid, with undo); notes and MIDI clock out to synths and other apps (tested into FL Studio)</td><td>MIDI files and MIDI out (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Matching a reference</td><td>Grid and swing measured from a record; per-note timing and loudness measured from a reference record and written into your notes; scored comparisons; transcription by consensus</td><td>Beat Detective finds beats in audio; Extract Chords names chords from MIDI notes (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Playing live</td><td>Decks, transitions and edits while the music runs</td><td>Not described in its docs</td></tr>
     <tr><td>Tempo</td><td>One tempo per project</td><td>Tempo maps (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>

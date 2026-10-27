@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ismail vs Ableton MCP servers: Measured Instruments</title>
 <meta name="description" content="ismail vs Ableton MCP servers: which one should your agent use? A short answer, a side-by-side table and what the agent reads back from a render.">
+<link rel="canonical" href="https://measuredinstruments.com/compare/ableton-mcp/">
+<meta property="og:site_name" content="Measured Instruments">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ismail vs Ableton MCP servers: Measured Instruments">
+<meta property="og:description" content="ismail vs Ableton MCP servers: which one should your agent use? A short answer, a side-by-side table and what the agent reads back from a render.">
+<meta property="og:url" content="https://measuredinstruments.com/compare/ableton-mcp/">
+<meta property="og:image" content="https://measuredinstruments.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Measured Instruments: luthiers for agents">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://measuredinstruments.com/"}, {"@type": "ListItem", "position": 2, "name": "Comparisons", "item": "https://measuredinstruments.com/compare/"}, {"@type": "ListItem", "position": 3, "name": "ismail vs Ableton MCP servers", "item": "https://measuredinstruments.com/compare/ableton-mcp/"}]}</script>
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +166,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>Rendering to a file</td><td>Yes: 24-bit WAV, stems per track, MP3 for listening</td><td>Depends on the server. ableton-mcp's 37 tools have no render or export tool (<a href="https://github.com/ahujasid/ableton-mcp/blob/main/MCP_Server/server.py">its server code</a>, 23 Oct 2026)</td></tr>
     <tr><td>What the agent gets back about the sound</td><td>Every render as text: levels, drum lanes, piano rolls, chords, structure, comparisons</td><td>Mostly the project (tracks, clips, notes, parameters). Producer Pal's own page says it "cannot listen to, analyze, or transcribe the audio itself" (<a href="https://producer-pal.org/features/limitations">limitations</a>). LivePilot adds mix measurements (loudness, spectrum, reference comparison). bschoepke's server can tap audio through a Max for Live device</td></tr>
     <tr><td>Playing live</td><td>Two ways. A jam: you play parts in (voice notes, recordings, a MIDI keyboard), the agent turns them into loops that keep playing while it works, and it records from the first take. A set: the agent plays songs on decks, makes transitions and edits while the music runs. Either way it reads back what it just played as numbers, with the same analysis as a render</td><td>Live is made for live performance by a person; the agent can start and stop clips</td></tr>
-    <tr><td>MIDI and plugins</td><td>MIDI files in and out (any DAW opens the export; a .mid reads into tracks); live MIDI in from a keyboard through a live set; notes and MIDI clock out to synths and other apps (tested into FL Studio). The sound comes from ismail's own instruments and effects, and the agent writes a new one in Python when a song needs it</td><td>Full MIDI and every plugin Live runs</td></tr>
+    <tr><td>MIDI and plugins</td><td>MIDI files in and out (any DAW opens the export; a .mid reads into tracks); live MIDI in from a keyboard through a live set, and what you played goes into a song track as notes in one call (as played or snapped to the grid, with undo); notes and MIDI clock out to synths and other apps (tested into FL Studio). The sound comes from ismail's own instruments and effects, and the agent writes a new one in Python when a song needs it</td><td>Full MIDI and every plugin Live runs</td></tr>
     <tr><td>The song is</td><td>A project folder of text files, so git history, diffs and code review work on music</td><td>A Live set</td></tr>
     <tr><td>GitHub stars (22 Oct 2026)</td><td>17</td><td>ableton-mcp 3,220; Producer Pal 338; bschoepke 231; LivePilot 88</td></tr>
   </table></div>
