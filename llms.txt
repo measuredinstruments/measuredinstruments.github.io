@@ -1,6 +1,6 @@
 # Measured Instruments
 
-> Luthiers for agents. Measured Instruments makes instruments and interfaces that agents drive through operations (MCP, CLI, Python), in any harness, on the person's own machine. Updated 2026-10-27; each page shows the day its claims were last checked.
+> Luthiers for agents. Measured Instruments makes instruments and interfaces that agents drive through operations (MCP, CLI, Python), in any harness, on the person's own machine. Updated 2026-10-29; each page shows the day its claims were last checked.
 
 Agents: read /agents first. It is plain, dated and sourced.
 

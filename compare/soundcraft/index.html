@@ -129,26 +129,26 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 <rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
 <rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
 <rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
-  <p class="rev"><span>draft 2026-10-20</span><br><span>last checked 2026-10-22</span></p>
+  <p class="rev"><span>written 2026-10-20</span><br><span>last checked 2026-10-22</span></p>
 </header>
 
 <div class="hero solo">
   <div>
     <h1>ismail vs SoundCraft: which one should your agent use?</h1>
-    <p class="lede">Last checked: 22 October 2026. SoundCraft is pre-alpha and changes daily; every line about it links to where we read it.</p>
+    <p class="lede">Last checked: 29 October 2026. SoundCraft is pre-alpha and changes daily; every line about it links to where we read it.</p>
   </div>
 </div>
 
 <div class="mission">
   <p class="label">Short answer</p>
-  <p>If you record and edit audio the Pro Tools way, want your plugins and MIDI, and want an agent to drive the same app you use, use <a href="https://github.com/storytold/soundcraft">SoundCraft</a>. If you want the agent to make the music itself and check every render as text before you listen, use <a href="https://github.com/newsbubbles/ismail">ismail</a>. They do different jobs and can work together through audio and MIDI files.</p>
+  <p>If you record and edit audio in a full desktop DAW, want your plugins and MIDI, and want an agent to drive the same app you use, use <a href="https://github.com/storytold/soundcraft">SoundCraft</a>. If you want the agent to make the music itself and check every render as text before you listen, use <a href="https://github.com/newsbubbles/ismail">ismail</a>. They do different jobs and can work together through audio and MIDI files.</p>
 </div>
 
 <section>
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>1</b></span> What each one is</h2>
 
   <ul class="plain">
-    <li><strong>SoundCraft</strong> is an open-source, clean-room re-implementation of Avid Pro Tools in Rust, for macOS, Windows, Linux, FreeBSD and the browser (<a href="https://github.com/storytold/soundcraft">README</a>). Every menu action is a command with JSON parameters, and an MCP server lets an agent list commands, run them (up to 1,000 in a batch), inspect the session, bounce the mix and take screenshots of the app (<a href="https://github.com/storytold/soundcraft/blob/main/docs/mcp.md">MCP docs</a>). Its README calls it pre-alpha.</li>
+    <li><strong>SoundCraft</strong> is an open-source DAW written in Rust for recording, editing and mixing audio, for macOS, Windows, Linux, FreeBSD and the browser (<a href="https://github.com/storytold/soundcraft">README</a>). Every menu action is a command with JSON parameters, and an MCP server lets an agent list commands, run them (up to 1,000 in a batch), inspect the session, bounce the mix and take screenshots of the app (<a href="https://github.com/storytold/soundcraft/blob/main/docs/mcp.md">MCP docs</a>). Its README calls it pre-alpha.</li>
     <li><strong>ismail</strong> is a DAW written for an agent. The agent writes notes, instruments, effects and the mix as text, ismail renders the audio, and the agent gets every render back as text: levels per bar, drum lanes, piano rolls, chords, song structure and scored comparisons against a reference. The agent also builds the screens you steer it through: a phone page, feedback pages, a VR stage.</li>
   </ul>
 
@@ -160,19 +160,19 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
   <div class="scroll"><table class="cmp">
     <tr><th></th><th>ismail</th><th>SoundCraft</th></tr>
     <tr><td>Built for</td><td>An agent making the music, with a person listening and steering</td><td>A person editing and mixing, with an agent able to drive every menu</td></tr>
-    <tr><td>A screen for you</td><td>Built by the agent when you need it: a phone page, feedback pages, a VR stage</td><td>A full Pro Tools-style desktop app</td></tr>
+    <tr><td>A screen for you</td><td>Built by the agent when you need it: a phone page, feedback pages, a VR stage</td><td>A full desktop DAW: edit and mix windows, a piano roll, a score editor</td></tr>
     <tr><td>What the agent gets back about the sound</td><td>Every render as text: about 40 tools for levels, grid, key, chords, melody, drums, swing, structure, timbre and comparisons</td><td>Peak and integrated loudness on a bounce, the session state and screenshots (<a href="https://github.com/storytold/soundcraft/blob/main/docs/mcp.md">MCP docs</a>); beat times and tempo found in audio (Beat Detective), and a chord name per bar from MIDI notes (Extract Chords) (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Instruments</td><td>Its own synths, drum synths, samplers, voices written in Python, and instruments measured from a recording</td><td>Its own synths, drum synth and sampler, plus CLAP, VST3 and AU plugins (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Mixing and mastering</td><td>The agent mixes with effects it writes as code: EQ, compressor with sidechain, gate, limiter, reverb, delay, a guitar amp and cab, sound moved in 3D, and more, with automation on tracks, buses and the master. <code>master_cue</code> masters a finished song to a loudness target and a true-peak ceiling, and every render reports its loudness (LUFS) and true peak</td><td>A full mixer: ten inserts and ten sends per track, busses, aux inputs, VCAs, and automation on every plugin parameter. Its own EQ, compressor/limiter, gate, de-esser, maximizer, reverbs, delay and more, plus your plugins. A bounce can dither and normalise, and reports peak, true peak and integrated loudness (LUFS) (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Recording</td><td>A person's take goes in as an audio file, and what they play on a MIDI keyboard goes into a track as notes; a live set's output can be recorded</td><td>Multitrack recording and comping (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
-    <tr><td>MIDI</td><td>MIDI files in and out; live MIDI in from a keyboard through a live set, and what you played goes into a song track as notes in one call (as played or snapped to the grid, with undo); notes and MIDI clock out to synths and other apps (tested into FL Studio)</td><td>MIDI files and MIDI out (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
+    <tr><td>MIDI</td><td>MIDI files in and out; live MIDI in from a keyboard through a live set, and what you played goes into a song track as notes in one call (as played or snapped to the grid, with undo); notes and MIDI clock out to synths and other apps (tested into FL Studio)</td><td>MIDI files in and out, a piano roll, a score view and step input, and Audio-to-MIDI from a sung or played melody; its README lists recording MIDI from a controller as still missing (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Matching a reference</td><td>Grid and swing measured from a record; per-note timing and loudness measured from a reference record and written into your notes; scored comparisons; transcription by consensus</td><td>Beat Detective finds beats in audio; Extract Chords names chords from MIDI notes (<a href="https://github.com/storytold/soundcraft/blob/main/crates/engine/src/cmd/event_more.rs">code</a>)</td></tr>
     <tr><td>Playing live</td><td>Decks, transitions and edits while the music runs</td><td>Not described in its docs</td></tr>
     <tr><td>Tempo</td><td>One tempo per project</td><td>Tempo maps (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>Surround</td><td>Stereo</td><td>Up to 9.1.6 and Ambisonics (<a href="https://github.com/storytold/soundcraft">README</a>)</td></tr>
     <tr><td>The song is</td><td>A folder of text files the agent writes directly: notes, voices, effects and the mix</td><td>A JSON session file (.scraft) with an Audio Files folder (<a href="https://github.com/storytold/soundcraft/blob/main/docs/file-format-parity.md">file formats</a>)</td></tr>
-    <tr><td>Licence and cost</td><td>Free, MIT</td><td>Free, open source (Apache-2.0 per GitHub)</td></tr>
-    <tr><td>GitHub stars (22 Oct 2026)</td><td>17</td><td>3,533</td></tr>
+    <tr><td>Licence and cost</td><td>Free, MIT</td><td>Free, open source (MIT or Apache-2.0, per its README)</td></tr>
+    <tr><td>GitHub stars (29 Oct 2026)</td><td>17</td><td>3,878</td></tr>
   </table></div>
 
 </section>
@@ -199,7 +199,7 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
   <h2><span class="scale" aria-hidden="true"><i></i><i></i><i></i><i></i><b>4</b></span> Choose SoundCraft if</h2>
 
   <ul class="plain">
-    <li>You record, comp and edit audio and want a Pro Tools workflow without Pro Tools.</li>
+    <li>You record, comp and edit audio and want a full open-source desktop DAW.</li>
     <li>You rely on your plugins or surround.</li>
     <li>You want to stay at the controls and let an agent handle the tedious edits in the same app.</li>
   </ul>
@@ -241,13 +241,13 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
 
   <pre class="read">Set me up with ismail: https://github.com/newsbubbles/ismail</pre>
 
-  <p><em>Sources, read 20 October 2026 and re-checked 22 October 2026 (the mixing and mastering row read 25 October 2026, the per-note timing line 27 October 2026): SoundCraft README, docs/mcp.md, docs/control-protocol.md and its menu catalog; star counts and licence from the GitHub API. ismail facts from its README and its tool list on main.</em></p>
+  <p><em>Sources, read 20 October 2026 and re-checked 22 and 29 October 2026 (the mixing and mastering row read 25 October 2026, the per-note timing line 27 October 2026): SoundCraft README, docs/mcp.md, docs/control-protocol.md and its menu catalog; star counts and licence from the GitHub API. ismail facts from its README and its tool list on main.</em></p>
 
 </section>
 <footer>
   <p>Measured Instruments LLC, a Wyoming limited liability company</p>
   <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
-  <p>draft 2026-10-20 &middot; last checked 2026-10-22 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a> &middot; <a href="../../blog/">blog</a> &middot; <a href="../../faq/">FAQ</a></p>
+  <p>written 2026-10-20 &middot; last checked 2026-10-22 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a> &middot; <a href="../../blog/">blog</a> &middot; <a href="../../faq/">FAQ</a></p>
 </footer>
 </main>
 </body>

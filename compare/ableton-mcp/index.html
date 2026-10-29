@@ -129,13 +129,13 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 <rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
 <rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
 <rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
-  <p class="rev"><span>draft 2026-10-19</span><br><span>last checked 2026-10-22</span></p>
+  <p class="rev"><span>written 2026-10-19</span><br><span>last checked 2026-10-22</span></p>
 </header>
 
 <div class="hero solo">
   <div>
     <h1>ismail vs Ableton MCP servers: which one should your agent use?</h1>
-    <p class="lede">Last checked: 22 October 2026. Prices and features change; every line about another project links to where we read it.</p>
+    <p class="lede">Last checked: 29 October 2026. Prices and features change; every line about another project links to where we read it.</p>
   </div>
 </div>
 
@@ -164,11 +164,11 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>Who makes the sound</td><td>ismail's own instruments: synths, drum synths, samplers, instruments measured from recordings, voices written in Python</td><td>Live and the plugins you own</td></tr>
     <tr><td>Mixing and mastering</td><td>The agent mixes with effects it writes as code: EQ, compressor with sidechain, gate, limiter, reverb, delay, a guitar amp and cab, sound moved in 3D, and more, with automation on tracks, buses and the master. <code>master_cue</code> masters a finished song to a loudness target and a true-peak ceiling, and every render reports its loudness (LUFS) and true peak</td><td>Live's devices and your plugins, which the agent can load. Measuring the mix depends on the server (LivePilot measures loudness and spectrum)</td></tr>
     <tr><td>Rendering to a file</td><td>Yes: 24-bit WAV, stems per track, MP3 for listening</td><td>Depends on the server. ableton-mcp's 37 tools have no render or export tool (<a href="https://github.com/ahujasid/ableton-mcp/blob/main/MCP_Server/server.py">its server code</a>, 23 Oct 2026)</td></tr>
-    <tr><td>What the agent gets back about the sound</td><td>Every render as text: levels, drum lanes, piano rolls, chords, structure, comparisons</td><td>Mostly the project (tracks, clips, notes, parameters). Producer Pal's own page says it "cannot listen to, analyze, or transcribe the audio itself" (<a href="https://producer-pal.org/features/limitations">limitations</a>). LivePilot adds mix measurements (loudness, spectrum, reference comparison). bschoepke's server can tap audio through a Max for Live device</td></tr>
+    <tr><td>What the agent gets back about the sound</td><td>Every render as text: levels, drum lanes, piano rolls, chords, structure, comparisons</td><td>Mostly the project (tracks, clips, notes, parameters). Producer Pal's own page says it "cannot listen to or analyze the audio itself"; its companion audio skills for a coding agent render a track or the mix to a file (macOS only) and analyze it (<a href="https://producer-pal.org/features/limitations">limitations</a>). LivePilot adds mix measurements (loudness, spectrum, reference comparison). bschoepke's server can tap audio through a Max for Live device</td></tr>
     <tr><td>Playing live</td><td>Two ways. A jam: you play parts in (voice notes, recordings, a MIDI keyboard), the agent turns them into loops that keep playing while it works, and it records from the first take. A set: the agent plays songs on decks, makes transitions and edits while the music runs. Either way it reads back what it just played as numbers, with the same analysis as a render</td><td>Live is made for live performance by a person; the agent can start and stop clips</td></tr>
     <tr><td>MIDI and plugins</td><td>MIDI files in and out (any DAW opens the export; a .mid reads into tracks); live MIDI in from a keyboard through a live set, and what you played goes into a song track as notes in one call (as played or snapped to the grid, with undo); notes and MIDI clock out to synths and other apps (tested into FL Studio). The sound comes from ismail's own instruments and effects, and the agent writes a new one in Python when a song needs it</td><td>Full MIDI and every plugin Live runs</td></tr>
     <tr><td>The song is</td><td>A project folder of text files, so git history, diffs and code review work on music</td><td>A Live set</td></tr>
-    <tr><td>GitHub stars (22 Oct 2026)</td><td>17</td><td>ableton-mcp 3,220; Producer Pal 338; bschoepke 231; LivePilot 88</td></tr>
+    <tr><td>GitHub stars (29 Oct 2026)</td><td>17</td><td>ableton-mcp 3,264; Producer Pal 350; bschoepke 235; LivePilot 90</td></tr>
   </table></div>
 
 </section>
@@ -239,13 +239,13 @@ C   bars  57-78  (22)  level 12.7 dB  low XxXXXxXxXXXX.XXx  snare x.xXx..xX.x.x.
 
   <pre class="read">Set me up with ismail: https://github.com/newsbubbles/ismail</pre>
 
-  <p><em>Sources, read 17 October 2026 (every line, star counts and repo links re-checked 22 October 2026): Ableton prices from ableton.com/en/shop/live; ableton-mcp README; Producer Pal installation and limitations pages; LivePilot and bschoepke READMEs; star counts from the GitHub API. ismail facts from its README and docs/reference.md.</em></p>
+  <p><em>Sources, read 17 October 2026 (every line, star counts and repo links re-checked 22 and 29 October 2026): Ableton prices from ableton.com/en/shop/live; ableton-mcp README; Producer Pal installation and limitations pages; LivePilot and bschoepke READMEs; star counts from the GitHub API. ismail facts from its README and docs/reference.md.</em></p>
 
 </section>
 <footer>
   <p>Measured Instruments LLC, a Wyoming limited liability company</p>
   <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
-  <p>draft 2026-10-19 &middot; last checked 2026-10-22 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a> &middot; <a href="../../blog/">blog</a> &middot; <a href="../../faq/">FAQ</a></p>
+  <p>written 2026-10-19 &middot; last checked 2026-10-22 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a> &middot; <a href="../../blog/">blog</a> &middot; <a href="../../faq/">FAQ</a></p>
 </footer>
 </main>
 </body>
