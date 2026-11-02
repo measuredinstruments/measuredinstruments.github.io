@@ -129,13 +129,13 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 <rect x="316.0" y="399" width="4" height="12" fill="currentColor"/>
 <rect x="368.0" y="399" width="4" height="12" fill="currentColor"/>
 <rect x="420.0" y="399" width="4" height="22" fill="currentColor"/></svg><span>Measured Instruments</span></a>
-  <p class="rev"><span>written 2026-10-19</span><br><span>last checked 2026-10-22</span></p>
+  <p class="rev"><span>written 2026-10-19</span><br><span>last checked 2026-10-30</span></p>
 </header>
 
 <div class="hero solo">
   <div>
     <h1>The soundtrack for your Claude music video: Suno or ismail?</h1>
-    <p class="lede">Last checked: 29 October 2026. Plans and terms change; each line about Suno links to Suno's own page.</p>
+    <p class="lede">Last checked: 30 October 2026. Plans and terms change; each line about Suno links to Suno's own page.</p>
   </div>
 </div>
 
@@ -158,8 +158,8 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 
   <div class="scroll"><table class="cmp">
     <tr><th></th><th>ismail</th><th>Suno</th></tr>
-    <tr><td>What you get</td><td>A project your agent wrote: notes, instruments, effects, mix. Rendered to WAV, one stem per track, mastered to the loudness you ask for (every render reports its LUFS and true peak), and the notes as a .mid file</td><td>A finished, mixed song from a prompt, vocals included</td></tr>
-    <tr><td>Vocals</td><td>No singing voice. Speech and vocoder-style voices only</td><td>Yes, sung lyrics</td></tr>
+    <tr><td>What you get</td><td>A project your agent wrote: notes, instruments, effects, mix. Rendered to WAV, one stem per track and per bus, mastered to the loudness you ask for (every render reports its LUFS and true peak), and the notes as a .mid file</td><td>A finished, mixed song from a prompt, vocals included</td></tr>
+    <tr><td>Vocals</td><td>No singing voice. Speech and vocoder-style voices, and your own sung take can go in as audio, tuned to the song's key</td><td>Yes, sung lyrics</td></tr>
     <tr><td>Changing one part</td><td>Edit one note, bar, sound or fader, render again; everything else stays as it was</td><td>Regenerate or replace a section. Suno Studio (Premier plan) edits MIDI on a timeline, with effects and automation (<a href="https://suno.com/release-notes">release notes</a>, <a href="https://suno.com/pricing">pricing</a>)</td></tr>
     <tr><td>Timing for your visuals</td><td>The notes are the source, so the agent knows when every note lands. <code>python -m ismail.video sync</code> writes every note with its video frame (to the nearest frame), plus loudness per frame, to a JSON file your video code can read</td><td>You get audio. Timing comes from listening, or from analysing the file</td></tr>
     <tr><td>Files on your disk</td><td>Every render, as many as you like</td><td>Free: up to 7 downloads for the life of the account. Pro (8 USD a month): 20 a month. Premier (24 USD a month): 60 a month (<a href="https://suno.com/pricing">pricing</a>, <a href="https://help.suno.com/en/articles/13926209">downloads</a>)</td></tr>
@@ -167,7 +167,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <tr><td>Agent access</td><td>Built for agents: MCP tools, a command line and a Python API</td><td>No public API; the terms forbid "robots, scraping" (<a href="https://suno.com/terms">terms</a>)</td></tr>
     <tr><td>Runs</td><td>On your machine</td><td>In Suno's cloud</td></tr>
     <tr><td>Setup</td><td>Your agent installs it</td><td>Nothing to install</td></tr>
-    <tr><td>Speed to a first full song</td><td>Minutes to hours, and it needs your direction</td><td>Under a minute</td></tr>
+    <tr><td>Speed to a first full song</td><td>Minutes to hours, and it needs your direction. <code>sketch</code> plays three short ideas from one sentence</td><td>Under a minute</td></tr>
   </table></div>
 
 </section>
@@ -199,6 +199,8 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 }</pre>
 
   <p>At 144 BPM a beat is 12.5 frames, so a note between frames goes to the nearest one: beat 130.5 lands on frame 1631. At tempos where a beat is a whole number of frames (150 BPM at 30 fps is 12) every note lands exactly.</p>
+
+  <p>ismail can also make the video itself: <code>python -m ismail.video</code> renders shots in Blender and places every cut from the song's own notes. It needs Blender 5.x and ffmpeg.</p>
 
 </section>
 
@@ -234,7 +236,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
     <li>Paste this to the agent you already use for the video:<pre class="read">Set me up with ismail: https://github.com/newsbubbles/ismail</pre></li>
     <li>Tell it the length, tempo and feel, and where the big moments are ("drop at 0:42, quiet under the voice-over from 1:10").</li>
     <li>It writes the parts, renders, and reads the render back as text (levels per bar, drum lanes, structure) to catch problems before you listen.</li>
-    <li>You listen and say what to change. It changes that part, not the whole track.</li>
+    <li>You listen and say what to change, out loud or on a page where you click the moment and leave a note. It changes that part, not the whole track.</li>
     <li>Your video code reads the event file and cuts on the beat.</li>
   </ol>
 
@@ -245,13 +247,13 @@ footer { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 56px;
 
   <p>From ismail's own README: a first sketch from a blank page can sound generic; it is strongest when there is something to measure. No singing voice, and one tempo per project. It needs a capable agent, and your ear is the final judge; the listening tests so far had one listener.</p>
 
-  <p><em>Sources, read 19 October 2026 and re-checked 22 and 29 October 2026: <a href="https://suno.com/pricing">suno.com/pricing</a>, <a href="https://suno.com/terms">suno.com/terms</a> (effective 3 September 2026), <a href="https://help.suno.com/en/articles/13926209">help.suno.com article 13926209</a> (download limits), <a href="https://suno.com/release-notes">suno.com/release-notes</a>. ismail facts from its README, docs/reference.md and the ismail.video source (the mastering and .mid lines read 26 October 2026).</em></p>
+  <p><em>Sources, read 19 October 2026 and re-checked 22 and 29 October 2026: <a href="https://suno.com/pricing">suno.com/pricing</a>, <a href="https://suno.com/terms">suno.com/terms</a> (effective 3 September 2026), <a href="https://help.suno.com/en/articles/13926209">help.suno.com article 13926209</a> (download limits), <a href="https://suno.com/release-notes">suno.com/release-notes</a>. ismail facts from its README, docs/reference.md and the ismail.video source (the mastering and .mid lines read 26 October 2026; re-read on main 30 October 2026).</em></p>
 
 </section>
 <footer>
   <p>Measured Instruments LLC, a Wyoming limited liability company</p>
   <p><a href="mailto:hello@measuredinstruments.com">hello@measuredinstruments.com</a> &middot; No cookies, no analytics. GitHub Pages hosts the site and keeps its own server logs (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</p>
-  <p>written 2026-10-19 &middot; last checked 2026-10-22 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a> &middot; <a href="../../blog/">blog</a> &middot; <a href="../../faq/">FAQ</a></p>
+  <p>written 2026-10-19 &middot; last checked 2026-10-30 &middot; <a href="../../">home</a> &middot; <a href="../../ismail/">ismail</a> &middot; <a href="../../how/">how we work</a> &middot; <a href="../../team/">team</a> &middot; <a href="../../agents/">for agents</a> &middot; <a href="../../blog/">blog</a> &middot; <a href="../../faq/">FAQ</a></p>
 </footer>
 </main>
 </body>
